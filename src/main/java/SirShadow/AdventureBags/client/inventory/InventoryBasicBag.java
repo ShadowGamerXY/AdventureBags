@@ -18,7 +18,7 @@ public class InventoryBasicBag implements IInventory
 
     public InventoryBasicBag(EntityPlayer player)
         {
-            inventory = new ItemStack[16];
+            inventory = new ItemStack[60];
             readFromNBT(BagBindingUtils.getInventoryTagOfPlayer(player));
 
         }
@@ -109,7 +109,7 @@ public class InventoryBasicBag implements IInventory
     @Override
     public int getInventoryStackLimit()
     {
-        return 1;
+        return 64;
     }
 
     @Override

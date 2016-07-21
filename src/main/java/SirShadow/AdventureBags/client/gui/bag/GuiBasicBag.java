@@ -17,5 +17,16 @@ public class GuiBasicBag extends GuiBase
 
     public GuiBasicBag(EntityPlayer player, InventoryBasicBag inventoryBag) {
         super("Adventure Bag", new ContainerBasicBag(player,inventoryBag), texture);
+        xSize = 176;
+        ySize = 222;
+    }
+
+    @Override
+    protected void drawGuiContainerBackgroundLayer(float partialTicks, int rawMouseX, int rawMouseY) {
+        super.drawGuiContainerBackgroundLayer(partialTicks, rawMouseX, rawMouseY);
+        this.mc.getTextureManager().bindTexture(texture);
+        int x = (width - xSize) / 2;
+        int y = (height - ySize) / 2;
+        this.drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
     }
 }

@@ -13,6 +13,9 @@ public class ContainerBasicBag extends Container {
     protected final int PLAYER_INVENTORY_ROWS = 3;
     protected final int PLAYER_INVENTORY_COLUMNS = 9;
 
+    protected final int BAG_INVENTORY_ROWS = 7;
+    protected final int BAG_INVENTORY_COLUMNS = 6;
+
     private final EntityPlayer player;
     public final InventoryBasicBag InventorySpellBook;
 
@@ -21,44 +24,24 @@ public class ContainerBasicBag extends Container {
         this.InventorySpellBook = inventorySpellBook;
         int currentSlotHeldIn = player.inventory.currentItem;
 
-//        for (int columnIndex = 4; columnIndex < inventoryColumns; ++columnIndex)
+        int slotBagIndex = 0;
+
+        for (int i = 0; i < BAG_INVENTORY_ROWS; i++)
+            for (int k = 0; k < BAG_INVENTORY_COLUMNS; k++) {
+                this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, slotBagIndex++, i * 20 + 15, k * 18 + 15));
+            }
+
+        for (int rowIndex = 0; rowIndex < PLAYER_INVENTORY_ROWS; ++rowIndex)
         {
-            //slot 1
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 0, 20, 11));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 1, 20, 11 + 20));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 2, 20, 11 + 40));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 3, 20, 11 + 60));
-
-            //Slot 2
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 4, 20 + 20 + 3, 11));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 5, 20 + 20 + 3, 11 + 20));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 6, 20 + 20 + 3, 11 + 40));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 7, 20 + 20 + 3, 11 + 60));
-            //Slot 3
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 8, 20 + 20 + 3 + 71, 11));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 9, 20 + 20 + 3 + 71, 11 + 20));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 10, 20 + 20 + 3 + 71, 11 + 40));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 11, 20 + 20 + 3 + 71, 11 + 60));
-            //Slot 4
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 12, 20 + 20 + 98, 11));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 13, 20 + 20 + 98, 11 + 20));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 14, 20 + 20 + 98, 11 + 40));
-            this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, 15, 20 + 20 + 98, 11 + 60));
-
-        }
-
-        for (int rowIndex = 0; rowIndex < PLAYER_INVENTORY_ROWS; ++rowIndex) {
-            for (int columnIndex = 0; columnIndex < PLAYER_INVENTORY_COLUMNS; ++columnIndex) {
-                this.addSlotToContainer(new Slot(player.inventory, columnIndex + rowIndex * 9 + 9, 8 + columnIndex * 18, 123 + rowIndex * 18));
+            for (int columnIndex = 0; columnIndex < PLAYER_INVENTORY_COLUMNS; ++columnIndex)
+            {
+                this.addSlotToContainer(new Slot(player.inventory, columnIndex + rowIndex * 9 + 9, 8 + columnIndex * 18, 140 + rowIndex * 18));
             }
         }
 
-        for (int actionBarIndex = 0; actionBarIndex < PLAYER_INVENTORY_COLUMNS; ++actionBarIndex) {
-            if (actionBarIndex == currentSlotHeldIn) {
-                this.addSlotToContainer(new SlotDisabled(player.inventory, actionBarIndex, 8 + actionBarIndex * 18, 181));
-            } else {
-                this.addSlotToContainer(new Slot(player.inventory, actionBarIndex, 8 + actionBarIndex * 18, 181));
-            }
+        for (int actionBarIndex = 0; actionBarIndex < PLAYER_INVENTORY_COLUMNS; ++actionBarIndex)
+        {
+            this.addSlotToContainer(new Slot(player.inventory, actionBarIndex, 8 + actionBarIndex * 18, 198));
         }
     }
 
