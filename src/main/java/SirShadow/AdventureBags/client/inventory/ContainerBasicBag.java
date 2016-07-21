@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 /**
@@ -13,8 +14,8 @@ public class ContainerBasicBag extends Container {
     protected final int PLAYER_INVENTORY_ROWS = 3;
     protected final int PLAYER_INVENTORY_COLUMNS = 9;
 
-    protected final int BAG_INVENTORY_ROWS = 7;
-    protected final int BAG_INVENTORY_COLUMNS = 6;
+    protected final int BAG_INVENTORY_ROWS = 5;
+    protected final int BAG_INVENTORY_COLUMNS = 5;
 
     private final EntityPlayer player;
     public final InventoryBasicBag InventorySpellBook;
@@ -65,52 +66,11 @@ public class ContainerBasicBag extends Container {
     }
 
     @Override
-    public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex) {
-        ItemStack stack = null;
-        Slot slotObject = (Slot) inventorySlots.get(slotIndex);
-        int slots = inventorySlots.size();
-
-        if (slotObject != null && slotObject.getHasStack()) {
-            ItemStack stackInSlot = slotObject.getStack();
-            stack = stackInSlot.copy();
-
-            if (slotIndex < 1) {
-                if (!this.mergeItemStack(stackInSlot, 1, slots, false)) {
-                    return null;
-                }
-            } else if (!this.mergeItemStack(stackInSlot, 0, 1, false)) {
-                return null;
-            }
-
-            if (slotIndex < 1 + (PLAYER_INVENTORY_ROWS * PLAYER_INVENTORY_COLUMNS)) {
-                if (!this.mergeItemStack(stackInSlot, 1 + (PLAYER_INVENTORY_ROWS * PLAYER_INVENTORY_COLUMNS), inventorySlots.size(), false)) {
-                    return null;
-                }
-            } else if (!this.mergeItemStack(stackInSlot, 1, 1 + (PLAYER_INVENTORY_ROWS * PLAYER_INVENTORY_COLUMNS), false)) {
-                return null;
-            }
-
-            if (stackInSlot.stackSize == 0)
-
-            {
-                slotObject.putStack(null);
-            } else
-
-            {
-                slotObject.onSlotChanged();
-            }
-
-            if (stackInSlot.stackSize == stack.stackSize)
-
-            {
-                return null;
-            }
-
-            slotObject.onPickupFromSlot(player, stackInSlot);
-        }
-        return stack;
+    public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex)
+    {
+        //StillWorking on it
+        return null;
     }
-
 
     public void saveInventory(EntityPlayer entityPlayer)
     {

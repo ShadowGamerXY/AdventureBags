@@ -18,7 +18,7 @@ public class InventoryBasicBag implements IInventory
 
     public InventoryBasicBag(EntityPlayer player)
         {
-            inventory = new ItemStack[60];
+            inventory = new ItemStack[42];
             readFromNBT(BagBindingUtils.getInventoryTagOfPlayer(player));
 
         }
