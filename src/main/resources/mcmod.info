@@ -1,0 +1,16 @@
+[
+{
+  "modid": "adventurebags",
+  "name": "Adventure Bags",
+  "description": "Adds bags for your adventures!",
+  "version": "0.01",
+  "mcversion": "1.10.2",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Team Spark"],
+  "credits": "To all member of team spark.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-@Mod(modid = LibMain.MOD_ID,name = LibMain.NAME,version = LibMain.VERSION)
+@Mod(modid = LibMain.MOD_ID,name = LibMain.NAME,version = LibMain.VERSION,useMetadata = true)
 public class AdventureBags
 {
     @Mod.Instance(LibMain.MOD_ID)
