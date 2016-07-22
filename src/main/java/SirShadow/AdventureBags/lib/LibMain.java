@@ -9,6 +9,6 @@ public class LibMain
                 MOD_ID="adventurebags",
                 NAME = "Adventure Bags",
                 VERSION = "0.01",
-                CLIENT_PROXY_CLASS = "SirShadow.AdventureBags.proxys.ClientProxy",
-                SERVER_PROXY_CLASS = "SirShadow.AdventureBags.proxys.ClientProxy";
+                CLIENT_PROXY_CLASS = "SirShadow.adventurebags.proxys.ClientProxy",
+                SERVER_PROXY_CLASS = "SirShadow.adventurebags.proxys.ServerProxy";
 }

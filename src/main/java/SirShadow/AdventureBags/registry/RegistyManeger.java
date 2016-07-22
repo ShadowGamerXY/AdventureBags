@@ -23,7 +23,7 @@ public class RegistyManeger
         GameRegistry.register(itemBasicBag);
     }
     @SideOnly(Side.CLIENT)
-    public static void initModelsAndVariants()
+    public static void initItemModelsAndVariants()
     {
         ITEMS.forEach(ItemBaseAB::initModelsAndVariants);
         //ITEMS_SWORD.forEach(ItemSwordHE::initModelsAndVariants);

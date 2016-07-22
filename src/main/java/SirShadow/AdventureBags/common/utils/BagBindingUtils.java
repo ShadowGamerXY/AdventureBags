@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 public class BagBindingUtils
 {
 
-    public static String IDTag = "[AdventureBags]";
+    public static String IDTag = "[adventurebags]";
 
     public static NBTTagCompound getPersistentDataTag(EntityPlayer player)
     {

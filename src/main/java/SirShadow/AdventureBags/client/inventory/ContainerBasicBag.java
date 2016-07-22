@@ -6,6 +6,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -14,40 +15,44 @@ public class ContainerBasicBag extends Container {
     protected final int PLAYER_INVENTORY_ROWS = 3;
     protected final int PLAYER_INVENTORY_COLUMNS = 9;
 
-    protected final int BAG_INVENTORY_ROWS = 5;
-    protected final int BAG_INVENTORY_COLUMNS = 5;
+    protected final int BAG_INVENTORY_ROWS = 6;
+    protected final int BAG_INVENTORY_COLUMNS = 3;
+
+    int size = BAG_INVENTORY_COLUMNS * BAG_INVENTORY_ROWS;
 
     private final EntityPlayer player;
-    public final InventoryBasicBag InventorySpellBook;
+    public final InventoryBasicBag inventoryBasicBag;
 
-    public ContainerBasicBag(EntityPlayer player, InventoryBasicBag inventorySpellBook) {
+    private Item itemFilter;
+
+    public ContainerBasicBag(EntityPlayer player, InventoryBasicBag inventoryBasicBag) {
         this.player = player;
-        this.InventorySpellBook = inventorySpellBook;
-        int currentSlotHeldIn = player.inventory.currentItem;
+        this.inventoryBasicBag = inventoryBasicBag;
 
         int slotBagIndex = 0;
 
         for (int i = 0; i < BAG_INVENTORY_ROWS; i++)
             for (int k = 0; k < BAG_INVENTORY_COLUMNS; k++) {
-                this.addSlotToContainer(new SlotSpellBook(this, inventorySpellBook, player, slotBagIndex++, i * 20 + 15, k * 18 + 15));
+                this.addSlotToContainer(new SlotSpellBook(this, inventoryBasicBag, player, slotBagIndex++, 31 + i * 18, 16 + k * 18));
             }
 
         for (int rowIndex = 0; rowIndex < PLAYER_INVENTORY_ROWS; ++rowIndex)
         {
             for (int columnIndex = 0; columnIndex < PLAYER_INVENTORY_COLUMNS; ++columnIndex)
             {
-                this.addSlotToContainer(new Slot(player.inventory, columnIndex + rowIndex * 9 + 9, 8 + columnIndex * 18, 140 + rowIndex * 18));
+                this.addSlotToContainer(new Slot(player.inventory, columnIndex + rowIndex * 9 + 9, 8 + columnIndex * 18, 88 + rowIndex * 18));
             }
         }
 
         for (int actionBarIndex = 0; actionBarIndex < PLAYER_INVENTORY_COLUMNS; ++actionBarIndex)
         {
-            this.addSlotToContainer(new Slot(player.inventory, actionBarIndex, 8 + actionBarIndex * 18, 198));
+            this.addSlotToContainer(new Slot(player.inventory, actionBarIndex, 8 + actionBarIndex * 18, 146));
         }
     }
 
     @Override
-    public boolean canInteractWith(EntityPlayer entityPlayer) {
+    public boolean canInteractWith(EntityPlayer entityPlayer)
+    {
         return true;
     }
 
@@ -66,15 +71,51 @@ public class ContainerBasicBag extends Container {
     }
 
     @Override
-    public ItemStack transferStackInSlot(EntityPlayer entityPlayer, int slotIndex)
+    public ItemStack transferStackInSlot(EntityPlayer p, int i)
     {
-        //StillWorking on it
-        return null;
+        ItemStack itemstack = null;
+        Slot slot = (Slot) inventorySlots.get(i);
+        if (slot != null && slot.getHasStack())
+        {
+            ItemStack itemstack1 = slot.getStack();
+            itemstack = itemstack1.copy();
+            if (i < this.size)
+            {
+                if (!mergeItemStack(itemstack1, this.size, inventorySlots.size(), true))
+                {
+                    return null;
+                }
+            }
+            else if (!acceptsStack(itemstack1))
+            {
+                return null;
+            }
+            else if (!mergeItemStack(itemstack1, 0, this.size, false))
+            {
+                return null;
+            }
+            if (itemstack1.stackSize == 0)
+            {
+                slot.putStack(null);
+            }
+            else
+            {
+                slot.onSlotChanged();
+            }
+        }
+        return itemstack;
     }
+
+
+    public boolean acceptsStack(ItemStack itemstack)
+    {
+        return itemFilter == null || itemstack == null || itemstack.getItem() == itemFilter;
+    }
+
 
     public void saveInventory(EntityPlayer entityPlayer)
     {
-        InventorySpellBook.onGuiSaved(entityPlayer);
+        inventoryBasicBag.onGuiSaved(entityPlayer);
     }
 
     private class SlotSpellBook extends Slot

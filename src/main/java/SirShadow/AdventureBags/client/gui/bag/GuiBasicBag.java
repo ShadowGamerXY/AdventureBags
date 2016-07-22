@@ -17,8 +17,8 @@ public class GuiBasicBag extends GuiBase
 
     public GuiBasicBag(EntityPlayer player, InventoryBasicBag inventoryBag) {
         super("Adventure Bag", new ContainerBasicBag(player,inventoryBag), texture);
-        xSize = 176;
-        ySize = 222;
+        xSize = 175;
+        ySize = 169;
     }
 
     @Override
