@@ -12,12 +12,12 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class RecipeManeger
 {
 
-    private static final ItemStack ENDER_BAG = new ItemStack(RegistyManeger.itemBasicBag);
+    private static final ItemStack ENDER_BAG = new ItemStack(RegistyManeger.itemEnderBag);
 
 
     public static void regiser()
     {
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RegistyManeger.itemBasicBag),true,new Object[]{" R ","LEL","LLL",'R', new ItemStack(Blocks.END_ROD),'L',new ItemStack(Items.LEATHER),'E',new ItemStack(Items.ENDER_EYE)}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RegistyManeger.itemEnderBag),true,new Object[]{" R ","LEL","LLL",'R', new ItemStack(Blocks.END_ROD),'L',new ItemStack(Items.LEATHER),'E',new ItemStack(Items.ENDER_EYE)}));
     }
 
 }

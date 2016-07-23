@@ -17,7 +17,7 @@ public class AdventureBags
     @Mod.Instance(LibMain.MOD_ID)
     public static AdventureBags instance;
 
-    @SidedProxy(clientSide = "SirShadow.AdventureBags.proxys.ClientProxy",serverSide = LibMain.SERVER_PROXY_CLASS)
+    @SidedProxy(clientSide = LibMain.CLIENT_PROXY_CLASS,serverSide = LibMain.SERVER_PROXY_CLASS)
     public static IProxy proxy;
 
     @Mod.EventHandler
