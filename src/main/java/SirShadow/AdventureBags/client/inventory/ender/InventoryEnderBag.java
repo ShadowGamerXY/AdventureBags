@@ -1,4 +1,4 @@
-package SirShadow.AdventureBags.client.inventory;
+package SirShadow.AdventureBags.client.inventory.ender;
 
 import SirShadow.AdventureBags.common.utils.BagBindingUtils;
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,16 +7,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraftforge.common.util.INBTSerializable;
+
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-public class InventoryBasicBag implements IInventory
+public class InventoryEnderBag implements IInventory
 {
         protected ItemStack[] inventory;
 
         protected static String NBT_ITEMS = "spells";
 
-    public InventoryBasicBag(EntityPlayer player)
+    public InventoryEnderBag(EntityPlayer player)
         {
             inventory = new ItemStack[42];
             readFromNBT(BagBindingUtils.getInventoryTagOfPlayer(player));
@@ -27,6 +29,8 @@ public class InventoryBasicBag implements IInventory
     {
         save(entityPlayer);
     }
+
+
 
     public void save(EntityPlayer player)
     {

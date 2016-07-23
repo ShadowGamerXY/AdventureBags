@@ -8,5 +8,5 @@ public enum  EnumIDs
     /**
      * GUI ids
      */
-    GUI_BASIC_BAG
+    GUI_ENDER_BAG, GUI_LEATHER_BAG
 }
