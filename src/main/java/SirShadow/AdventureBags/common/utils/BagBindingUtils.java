@@ -40,4 +40,21 @@ public class BagBindingUtils
         NBTTagCompound data = BagBindingUtils.getPersistentDataTag(player);
         data.setTag(IDTag + "BagInventory", tag);
     }
+
+    public static NBTTagCompound getInventoryBackpackTagOfPlayer(EntityPlayer player)
+    {
+        NBTTagCompound data = BagBindingUtils.getPersistentDataTag(player);
+        if(data.hasKey(IDTag + "BackpackTag"))
+        {
+            return data.getCompoundTag(IDTag + "BackpackTag");
+        }
+
+        return new NBTTagCompound();
+    }
+
+    public static void setInventoryBackpackTagOfPlayer(EntityPlayer player, NBTTagCompound tag)
+    {
+        NBTTagCompound data = BagBindingUtils.getPersistentDataTag(player);
+        data.setTag(IDTag + "BackpackTag", tag);
+    }
 }

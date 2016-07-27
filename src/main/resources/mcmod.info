@@ -2,13 +2,13 @@
 {
   "modid": "adventurebags",
   "name": "Adventure Bags",
-  "description": "Adds bags for your adventures!",
+  "description": "'Simple yet useful'-AlexisMachina, adds a new satchel and backpack for your adventures!",
   "version": "0.01",
   "mcversion": "1.10.2",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Team Spark"],
-  "credits": "To all member of team spark.",
+  "authorList": ["Team Roots and Yulife"],
+  "credits": "To all member of team roots and Yulife for the awesome textures.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

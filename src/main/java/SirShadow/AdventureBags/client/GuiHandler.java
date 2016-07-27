@@ -1,7 +1,10 @@
 package SirShadow.AdventureBags.client;
 
+import SirShadow.AdventureBags.client.gui.bag.GuiEnderBackapck;
 import SirShadow.AdventureBags.client.gui.bag.GuiEnderBag;
+import SirShadow.AdventureBags.client.inventory.ender.ContainerEnderBackapck;
 import SirShadow.AdventureBags.client.inventory.ender.ContainerEnderBag;
+import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBackapck;
 import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -19,6 +22,8 @@ public class GuiHandler implements IGuiHandler
         {
             case GUI_ENDER_BAG:
                 return new ContainerEnderBag(player,new InventoryEnderBag(player));
+            case GUI_ENDER_BACKPACK:
+                return new ContainerEnderBackapck(player,new InventoryEnderBackapck(player));
         }
         return null;
     }
@@ -30,6 +35,8 @@ public class GuiHandler implements IGuiHandler
         {
             case GUI_ENDER_BAG:
                 return new GuiEnderBag(player,new InventoryEnderBag(player));
+            case GUI_ENDER_BACKPACK:
+                return new GuiEnderBackapck(player,new InventoryEnderBackapck(player));
         }
         return null;
     }

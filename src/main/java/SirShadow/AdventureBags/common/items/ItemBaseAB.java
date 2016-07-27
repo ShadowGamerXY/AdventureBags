@@ -1,5 +1,6 @@
 package SirShadow.AdventureBags.common.items;
 
+import SirShadow.AdventureBags.AdventureBags;
 import SirShadow.AdventureBags.lib.LibMain;
 import SirShadow.AdventureBags.registry.RegistyManeger;
 import net.minecraft.client.renderer.ItemMeshDefinition;
@@ -26,7 +27,7 @@ public ItemBaseAB(String name, String ... variants) {
         super();
         setRegistryName(name);
         setUnlocalizedName(LibMain.MOD_ID + ":" + name);
-        setCreativeTab(CreativeTabs.MISC);
+        setCreativeTab(AdventureBags.tabAdventure);
         setMaxStackSize(1);
         setNoRepair();
 
