@@ -2,11 +2,16 @@ package SirShadow.AdventureBags.client;
 
 import SirShadow.AdventureBags.client.gui.bag.GuiEnderBackapck;
 import SirShadow.AdventureBags.client.gui.bag.GuiEnderBag;
-import SirShadow.AdventureBags.client.inventory.ender.ContainerEnderBackapck;
-import SirShadow.AdventureBags.client.inventory.ender.ContainerEnderBag;
+import SirShadow.AdventureBags.client.gui.crate.GuiEnderCrate;
+import SirShadow.AdventureBags.client.inventory.ender.bag.ContainerEnderBackapck;
+import SirShadow.AdventureBags.client.inventory.ender.bag.ContainerEnderBag;
 import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBackapck;
 import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBag;
+import SirShadow.AdventureBags.client.inventory.ender.crate.ContainerEnderCrate;
+import SirShadow.AdventureBags.common.tile.TEEnderCrate;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 
@@ -24,6 +29,9 @@ public class GuiHandler implements IGuiHandler
                 return new ContainerEnderBag(player,new InventoryEnderBag(player));
             case GUI_ENDER_BACKPACK:
                 return new ContainerEnderBackapck(player,new InventoryEnderBackapck(player));
+            case GUI_ENDER_CRATE:
+                    return new ContainerEnderCrate(player,new InventoryEnderBackapck(player));
+
         }
         return null;
     }
@@ -37,6 +45,9 @@ public class GuiHandler implements IGuiHandler
                 return new GuiEnderBag(player,new InventoryEnderBag(player));
             case GUI_ENDER_BACKPACK:
                 return new GuiEnderBackapck(player,new InventoryEnderBackapck(player));
+            case GUI_ENDER_CRATE:
+                return new GuiEnderCrate(player,new InventoryEnderBackapck(player));
+
         }
         return null;
     }

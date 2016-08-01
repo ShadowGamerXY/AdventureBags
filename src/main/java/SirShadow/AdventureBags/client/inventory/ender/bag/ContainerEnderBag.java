@@ -1,5 +1,6 @@
-package SirShadow.AdventureBags.client.inventory.ender;
+package SirShadow.AdventureBags.client.inventory.ender.bag;
 
+import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
@@ -50,8 +51,7 @@ public class ContainerEnderBag extends Container {
     }
 
     @Override
-    public boolean canInteractWith(EntityPlayer entityPlayer)
-    {
+    public boolean canInteractWith(EntityPlayer entityPlayer) {
         return true;
     }
 

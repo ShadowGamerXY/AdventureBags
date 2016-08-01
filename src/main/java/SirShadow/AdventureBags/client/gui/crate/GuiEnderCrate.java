@@ -1,22 +1,21 @@
-package SirShadow.AdventureBags.client.gui.bag;
+package SirShadow.AdventureBags.client.gui.crate;
 
 import SirShadow.AdventureBags.client.gui.GuiBase;
-import SirShadow.AdventureBags.client.inventory.ender.bag.ContainerEnderBackapck;
 import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBackapck;
+import SirShadow.AdventureBags.client.inventory.ender.crate.ContainerEnderCrate;
 import SirShadow.AdventureBags.lib.LibMain;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * Created by SirShadow on 21. 07. 2016.
+ * Created by SirShadow for the mod Roots on 1.8.2016.
  */
-public class GuiEnderBackapck extends GuiBase
+public class GuiEnderCrate extends GuiBase
 {
-
     private static final ResourceLocation texture = new ResourceLocation(LibMain.MOD_ID,"textures/gui/guiBasicBackpack.png");
 
-    public GuiEnderBackapck(EntityPlayer player, InventoryEnderBackapck inventoryBag) {
-        super("", new ContainerEnderBackapck(player,inventoryBag), null);
+    public GuiEnderCrate(EntityPlayer player, InventoryEnderBackapck inventoryBag) {
+        super("", new ContainerEnderCrate(player,inventoryBag), null);
         xSize = 175;
         ySize = 196;
     }

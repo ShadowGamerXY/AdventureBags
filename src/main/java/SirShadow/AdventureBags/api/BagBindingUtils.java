@@ -1,4 +1,4 @@
-package SirShadow.AdventureBags.common.utils;
+package SirShadow.AdventureBags.api;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -24,37 +24,20 @@ public class BagBindingUtils
     }
 
 
-    public static NBTTagCompound getInventoryTagOfPlayer(EntityPlayer player)
+    public static NBTTagCompound getInventoryTagOfPlayer(EntityPlayer player, String specialTag)
     {
         NBTTagCompound data = BagBindingUtils.getPersistentDataTag(player);
-        if(data.hasKey(IDTag + "BagInventory"))
+        if(data.hasKey(IDTag + specialTag))
         {
-            return data.getCompoundTag(IDTag + "BagInventory");
+            return data.getCompoundTag(IDTag + specialTag);
         }
 
         return new NBTTagCompound();
     }
 
-    public static void setInventoryTagOfPlayer(EntityPlayer player, NBTTagCompound tag)
+    public static void setInventoryTagOfPlayer(EntityPlayer player,String specialTag, NBTTagCompound tag)
     {
         NBTTagCompound data = BagBindingUtils.getPersistentDataTag(player);
-        data.setTag(IDTag + "BagInventory", tag);
-    }
-
-    public static NBTTagCompound getInventoryBackpackTagOfPlayer(EntityPlayer player)
-    {
-        NBTTagCompound data = BagBindingUtils.getPersistentDataTag(player);
-        if(data.hasKey(IDTag + "BackpackTag"))
-        {
-            return data.getCompoundTag(IDTag + "BackpackTag");
-        }
-
-        return new NBTTagCompound();
-    }
-
-    public static void setInventoryBackpackTagOfPlayer(EntityPlayer player, NBTTagCompound tag)
-    {
-        NBTTagCompound data = BagBindingUtils.getPersistentDataTag(player);
-        data.setTag(IDTag + "BackpackTag", tag);
+        data.setTag(IDTag + specialTag, tag);
     }
 }

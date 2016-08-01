@@ -1,6 +1,7 @@
 package SirShadow.AdventureBags.client.inventory.ender;
 
-import SirShadow.AdventureBags.common.utils.BagBindingUtils;
+import SirShadow.AdventureBags.api.BagBindingUtils;
+import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -15,12 +16,14 @@ public class InventoryEnderBackapck implements IInventory
 {
         protected ItemStack[] inventory;
 
+        public static String Special_Backpack_Tag = ConfigurationHandler.backpack_tag;
+
         protected static String NBT_ITEMS = "backpackItems";
 
     public InventoryEnderBackapck(EntityPlayer player)
         {
             inventory = new ItemStack[45];
-            readFromNBT(BagBindingUtils.getInventoryBackpackTagOfPlayer(player));
+            readFromNBT(BagBindingUtils.getInventoryTagOfPlayer(player,Special_Backpack_Tag));
 
         }
 
@@ -33,9 +36,9 @@ public class InventoryEnderBackapck implements IInventory
 
     public void save(EntityPlayer player)
     {
-        NBTTagCompound tag = BagBindingUtils.getInventoryBackpackTagOfPlayer(player);
+        NBTTagCompound tag = BagBindingUtils.getInventoryTagOfPlayer(player,Special_Backpack_Tag);
         writeToNBT(tag);
-        BagBindingUtils.setInventoryBackpackTagOfPlayer(player, tag);
+        BagBindingUtils.setInventoryTagOfPlayer(player,Special_Backpack_Tag ,tag);
     }
 
     @Override

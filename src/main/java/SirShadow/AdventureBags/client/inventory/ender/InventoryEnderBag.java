@@ -1,13 +1,13 @@
 package SirShadow.AdventureBags.client.inventory.ender;
 
-import SirShadow.AdventureBags.common.utils.BagBindingUtils;
+import SirShadow.AdventureBags.api.BagBindingUtils;
+import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraftforge.common.util.INBTSerializable;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -16,12 +16,14 @@ public class InventoryEnderBag implements IInventory
 {
         protected ItemStack[] inventory;
 
+        public static String Special_Bag_Tag = ConfigurationHandler.bag_tag;
+
         protected static String NBT_ITEMS = "spells";
 
     public InventoryEnderBag(EntityPlayer player)
         {
             inventory = new ItemStack[42];
-            readFromNBT(BagBindingUtils.getInventoryTagOfPlayer(player));
+            readFromNBT(BagBindingUtils.getInventoryTagOfPlayer(player,Special_Bag_Tag));
 
         }
 
@@ -34,9 +36,9 @@ public class InventoryEnderBag implements IInventory
 
     public void save(EntityPlayer player)
     {
-        NBTTagCompound tag = BagBindingUtils.getInventoryTagOfPlayer(player);
+        NBTTagCompound tag = BagBindingUtils.getInventoryTagOfPlayer(player,Special_Bag_Tag);
         writeToNBT(tag);
-        BagBindingUtils.setInventoryTagOfPlayer(player, tag);
+        BagBindingUtils.setInventoryTagOfPlayer(player,Special_Bag_Tag ,tag);
     }
 
     @Override
