@@ -1,7 +1,7 @@
 # AdventureBags
 "Simple yet useful" -AlexisMachina
 
-Titter: https://twitter.com/TeamRootsMC
+Twitter: https://twitter.com/TeamRootsMC
 Curse Forge: https://minecraft.curseforge.com/projects/adventurebag
 
 ## About:
