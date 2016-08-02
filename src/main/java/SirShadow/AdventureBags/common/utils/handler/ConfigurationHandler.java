@@ -32,10 +32,10 @@ public class ConfigurationHandler
     public static void load()
     {
         hard_bag_recipe = configuration.getBoolean("hard_bag_recipe",Configuration.CATEGORY_GENERAL,false,"Needs a game restart!");
-        dimension_Lock = configuration.getBoolean("Bag_Dimension_Lock",Configuration.CATEGORY_GENERAL,false,"");
+        dimension_Lock = configuration.getBoolean("Bag_Dimension_Lock",Configuration.CATEGORY_GENERAL,false,"If returns true it the all bags will work only in overworld!");
 
-        bag_tag = configuration.getString("ender_satchel_tag",Configuration.CATEGORY_GENERAL,"EnderSatchelTag","");
-        backpack_tag =configuration.getString("ender_backpack_tag",Configuration.CATEGORY_GENERAL,"EnderBackpackTag","");
+        bag_tag = configuration.getString("ender_satchel_tag",Configuration.CATEGORY_GENERAL,"EnderSatchelTag","The special tag for the bag!");
+        backpack_tag =configuration.getString("ender_backpack_tag",Configuration.CATEGORY_GENERAL,"EnderBackpackTag","The special tag for the backpack");
 
         if (configuration.hasChanged())
         {
