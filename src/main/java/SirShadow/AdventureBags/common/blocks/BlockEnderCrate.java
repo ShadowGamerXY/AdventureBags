@@ -1,4 +1,4 @@
-package SirShadow.AdventureBags.common.Block;
+package SirShadow.AdventureBags.common.blocks;
 
 import SirShadow.AdventureBags.client.EnumIDs;
 import SirShadow.AdventureBags.common.tile.TEEnderCrate;
@@ -7,13 +7,13 @@ import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * Created by SirShadow for the mod Roots on 1.8.2016.
@@ -22,7 +22,6 @@ public class BlockEnderCrate extends BlockContainerBase {
     public BlockEnderCrate() {
         super("blockEnderCrate", new TEEnderCrate());
     }
-
 
 
     @Override

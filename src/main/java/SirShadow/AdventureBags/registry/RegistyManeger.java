@@ -1,7 +1,7 @@
 package SirShadow.AdventureBags.registry;
 
-import SirShadow.AdventureBags.common.Block.BlockContainerBase;
-import SirShadow.AdventureBags.common.Block.BlockEnderCrate;
+import SirShadow.AdventureBags.common.blocks.BlockContainerBase;
+import SirShadow.AdventureBags.common.blocks.BlockEnderCrate;
 import SirShadow.AdventureBags.common.items.ItemBaseAB;
 import SirShadow.AdventureBags.common.items.bags.ItemEnderBackpack;
 import SirShadow.AdventureBags.common.items.bags.itemEnderBag;
@@ -35,12 +35,12 @@ public class RegistyManeger
         GameRegistry.register(itemReinforcedLeather);
         GameRegistry.register(itemEnderBackpack);
 
-        /*for (BlockContainerBase blockCHE : Block_Container) {
+        for (BlockContainerBase blockCHE : Block_Container) {
             GameRegistry.register(blockCHE);
             GameRegistry.register(new ItemBlock(blockCHE).setRegistryName(blockCHE.getRegistryName()));
         }
 
-       GameRegistry.registerTileEntity(TEEnderCrate.class,"tileEnderCrate");*/
+       GameRegistry.registerTileEntity(TEEnderCrate.class,"tileEnderCrate");
     }
     @SideOnly(Side.CLIENT)
     public static void initItemModelsAndVariants()

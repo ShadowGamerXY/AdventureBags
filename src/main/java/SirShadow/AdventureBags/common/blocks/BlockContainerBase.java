@@ -1,4 +1,4 @@
-package SirShadow.AdventureBags.common.Block;
+package SirShadow.AdventureBags.common.blocks;
 
 import SirShadow.AdventureBags.AdventureBags;
 import SirShadow.AdventureBags.lib.LibMain;
