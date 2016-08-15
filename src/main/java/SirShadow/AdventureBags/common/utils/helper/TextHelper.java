@@ -19,6 +19,24 @@ public class TextHelper
         return I18n.format(text);
     }
 
+
+
+    public static String deBugText(String text)
+    {
+        return BLUE + "["+ WHITE + "DeBug" + END + BLUE + "]:" + END + text;
+    }
+
+    /**
+     * @param text  Your text
+     * @param textColor Use a color from TextHelper eg. TextHelper.BLUE
+     * @return
+     */
+
+    public static String specialText(String text,String textColor)
+    {
+        return textColor + localize(text)+ END;
+    }
+
     /**
      * All string colours
      */
