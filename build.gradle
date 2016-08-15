@@ -1,5 +1,3 @@
-
-// For those who want the bleeding edge
 buildscript {
     repositories {
         jcenter()
@@ -22,12 +20,13 @@ archivesBaseName = mod_artifact_basename
 minecraft {
     version = minecraft_version + "-" + forge_version
     runDir = "run"
+	
+	
+	replaceIn "adventurebags.java"
+    replace "@MOD_VERSION@", "${mod_version}.${System.getenv("BUILD_NUMBER") ?: 0}"
    
     mappings = mcp_mappings_version
 }
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 dependencies {
 
@@ -35,19 +34,16 @@ dependencies {
 
 processResources
 {
-    // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
 
-    // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
                 
-        // replace version and mcversion
+        
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
-    // copy everything else, thats not the mcmod.info
+      
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
