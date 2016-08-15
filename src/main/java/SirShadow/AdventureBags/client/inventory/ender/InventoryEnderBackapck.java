@@ -194,7 +194,6 @@ public class InventoryEnderBackapck implements IInventory
 
     @Override
     public ITextComponent getDisplayName() {
-        // TODO Auto-generated method stub
         return null;
     }
 

@@ -135,8 +135,6 @@ public class TEEnderCrate extends TileEntity implements IInventory
     @Override
     public void openInventory(EntityPlayer player)
     {
-        // TODO Auto-generated method stub
-
     }
 
     @Override

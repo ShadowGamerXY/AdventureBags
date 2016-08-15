@@ -67,8 +67,6 @@ public ItemBaseAB(String name, String ... variants) {
 
         @SideOnly(Side.CLIENT)
         public void initModelsAndVariants() {
-
-        // TODO TRACE level logging
         if (getCustomMeshDefinition() != null) {
 
             ModelLoader.setCustomMeshDefinition(this, getCustomMeshDefinition());
