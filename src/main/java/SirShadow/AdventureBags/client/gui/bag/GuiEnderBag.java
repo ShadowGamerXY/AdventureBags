@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 public class GuiEnderBag extends GuiBase
 {
 
-    private static final ResourceLocation texture = new ResourceLocation(LibMain.MOD_ID,"textures/gui/guiBasicBag.png");
+    private static final ResourceLocation texture = new ResourceLocation(LibMain.ModInfo.MOD_ID,"textures/gui/guiBasicBag.png");
 
     public GuiEnderBag(EntityPlayer player, InventoryEnderBag inventoryBag) {
         super("Adventure Bag", new ContainerEnderBag(player,inventoryBag), null);

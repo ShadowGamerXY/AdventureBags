@@ -26,7 +26,7 @@ public class RegistyManeger
     public static ItemBaseAB itemEnderBag = new itemEnderBag(),
                              itemReinforcedLeather = new ItemReinforcedLeather(),
                              itemEnderBackpack = new ItemEnderBackpack();
-    public static BlockContainerBase blockContainerEnderCrate = new BlockEnderCrate();
+    //public static BlockContainerBase blockContainerEnderCrate = new BlockEnderCrate();
 
 
     public static void regiser()

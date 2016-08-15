@@ -1,11 +1,12 @@
 package SirShadow.AdventureBags.common.items.bags;
 
-import SirShadow.AdventureBags.api.ILockedBag;
+import SirShadow.AdventureBags.api.IBagAbility;
 import SirShadow.AdventureBags.client.EnumIDs;
 import SirShadow.AdventureBags.common.items.ItemBaseAB;
 import SirShadow.AdventureBags.common.utils.Util;
 import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
 import SirShadow.AdventureBags.common.utils.helper.TextHelper;
+import SirShadow.AdventureBags.lib.LibMain;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -24,13 +25,12 @@ import java.util.List;
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-public class itemEnderBag extends ItemBaseAB implements ILockedBag {
+public class itemEnderBag extends ItemBaseAB implements IBagAbility {
 
     public static boolean isLocked = false;
-    public String isLockedString = "isLocked";
 
     public itemEnderBag() {
-        super("itemEnderBag");
+        super(LibMain.LibNames.ender_bag);
     }
 
     @Override
@@ -39,9 +39,9 @@ public class itemEnderBag extends ItemBaseAB implements ILockedBag {
     }
 
     @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-        if (playerIn.isSneaking()) {
+        if (player.isSneaking()) {
             if (!isLocked) {
                 isLocked = true;
                 return EnumActionResult.SUCCESS;
@@ -110,7 +110,7 @@ public class itemEnderBag extends ItemBaseAB implements ILockedBag {
             tag = new NBTTagCompound();
             stack.setTagCompound(tag);
         }
-        tag.setBoolean(this.isLockedString,isLocked);
+        tag.setBoolean(LibMain.LibTags.bagLockTag,isLocked);
     }
 
     @Override
@@ -122,6 +122,6 @@ public class itemEnderBag extends ItemBaseAB implements ILockedBag {
             tag = new NBTTagCompound();
             stack.setTagCompound(tag);
         }
-        tag.getBoolean(isLockedString);
+        tag.getBoolean(LibMain.LibTags.bagLockTag);
     }
 }

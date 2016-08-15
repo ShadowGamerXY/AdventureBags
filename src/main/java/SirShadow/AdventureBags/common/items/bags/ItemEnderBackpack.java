@@ -1,14 +1,12 @@
 package SirShadow.AdventureBags.common.items.bags;
 
-import SirShadow.AdventureBags.AdventureBags;
-import SirShadow.AdventureBags.api.ILockedBag;
+import SirShadow.AdventureBags.api.IBagAbility;
 import SirShadow.AdventureBags.client.EnumIDs;
-import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBackapck;
-import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBag;
 import SirShadow.AdventureBags.common.items.ItemBaseAB;
 import SirShadow.AdventureBags.common.utils.Util;
 import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
 import SirShadow.AdventureBags.common.utils.helper.TextHelper;
+import SirShadow.AdventureBags.lib.LibMain;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -27,14 +25,18 @@ import java.util.List;
 /**
  * Created by SirShadow for the mod Roots on 27.7.2016.
  */
-public class ItemEnderBackpack extends ItemBaseAB implements ILockedBag
+public class ItemEnderBackpack extends ItemBaseAB implements IBagAbility
 {
-
     public static boolean isLocked = false;
-    public String isLockedString = "isLocked";
+
+    public static boolean quickAccess = false;
+    //TODO:Move to LibTags
+    public String quickAccessString = "quickAccess";
+
+
 
     public ItemEnderBackpack() {
-        super("itemEnderBackpack");
+        super(LibMain.LibNames.ender_backpack);
     }
 
     @Override
@@ -44,19 +46,14 @@ public class ItemEnderBackpack extends ItemBaseAB implements ILockedBag
     }
 
     @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-
-        if(playerIn.isSneaking())
-        {
-            if(!isLocked)
-            {
+    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if (player.isSneaking()) {
+            if (!isLocked) {
                 isLocked = true;
                 return EnumActionResult.SUCCESS;
             }
-        }
-        else
-        {
-            if(isLocked) {
+        } else {
+            if (isLocked) {
                 isLocked = false;
                 return EnumActionResult.SUCCESS;
             }
@@ -68,6 +65,7 @@ public class ItemEnderBackpack extends ItemBaseAB implements ILockedBag
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
         super.addInformation(stack, playerIn, tooltip, advanced);
         tooltip.add("Is bag locked: " + TextFormatting.RED + isLocked);
+        //tooltip.add("Quick access: " + TextHelper.ITALIC + TextHelper.PURPLE + quickAccess);
         if (TextHelper.displayShiftForDetail && !TextHelper.isShiftPressed())
         {
             tooltip.add("<Shift for details>");
@@ -118,7 +116,8 @@ public class ItemEnderBackpack extends ItemBaseAB implements ILockedBag
             tag = new NBTTagCompound();
             stack.setTagCompound(tag);
         }
-        tag.setBoolean(this.isLockedString,isLocked);
+        tag.setBoolean(LibMain.LibTags.backpackLockTag,isLocked);
+       // tag.setBoolean(this.quickAccessString,quickAccess);
     }
 
     @Override
@@ -130,6 +129,7 @@ public class ItemEnderBackpack extends ItemBaseAB implements ILockedBag
             tag = new NBTTagCompound();
             stack.setTagCompound(tag);
         }
-        tag.getBoolean(isLockedString);
+        tag.getBoolean(LibMain.LibTags.backpackLockTag);
+        //tag.getBoolean(quickAccessString);
     }
 }

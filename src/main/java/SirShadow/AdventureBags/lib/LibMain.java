@@ -5,10 +5,23 @@ package SirShadow.AdventureBags.lib;
  */
 public class LibMain
 {
-    public static final String
-                MOD_ID="adventurebags",
+    public class ModInfo {
+        public static final String
+                MOD_ID = "adventurebags",
                 NAME = "Adventure Bags",
                 VERSION = "0.2",
                 CLIENT_PROXY_CLASS = "SirShadow.AdventureBags.proxys.ClientProxy",
                 SERVER_PROXY_CLASS = "SirShadow.adventurebags.proxys.ServerProxy";
+    }
+    public class LibTags
+    {
+        public static final String
+                backpackLockTag = "[backpackLockTag]",
+                bagLockTag = "[bagLockTag]";
+    }
+
+    public class LibNames
+    {
+        public static final String ender_bag = "itemEnderBag",ender_backpack = "itemEnderBackpack";
+    }
 }

@@ -26,7 +26,7 @@ public class ItemBaseAB extends Item implements IItemVariantHolder<ItemBaseAB>
 public ItemBaseAB(String name, String ... variants) {
         super();
         setRegistryName(name);
-        setUnlocalizedName(LibMain.MOD_ID + ":" + name);
+        setUnlocalizedName(LibMain.ModInfo.MOD_ID + ":" + name);
         setCreativeTab(AdventureBags.tabAdventure);
         setMaxStackSize(1);
         setNoRepair();
@@ -46,7 +46,7 @@ public ItemBaseAB(String name, String ... variants) {
         public String getUnlocalizedName(ItemStack itemStack) {
 
         if (hasSubtypes && itemStack.getMetadata() < VARIANTS.length) {
-            return String.format("item." + LibMain.MOD_ID + ":%s", VARIANTS[itemStack.getMetadata()]);
+            return String.format("item." + LibMain.ModInfo.MOD_ID + ":%s", VARIANTS[itemStack.getMetadata()]);
         }
         return super.getUnlocalizedName(itemStack);
     }
@@ -106,6 +106,6 @@ public ItemBaseAB(String name, String ... variants) {
     }
 
     protected ModelResourceLocation getCustomModelResourceLocation(String variant) {
-        return new ModelResourceLocation(LibMain.MOD_ID + ":" + variant);
+        return new ModelResourceLocation(LibMain.ModInfo.MOD_ID + ":" + variant);
     }
 }

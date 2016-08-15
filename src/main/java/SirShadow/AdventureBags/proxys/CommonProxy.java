@@ -3,9 +3,13 @@ package SirShadow.AdventureBags.proxys;
 import SirShadow.AdventureBags.AdventureBags;
 import SirShadow.AdventureBags.client.GuiHandler;
 import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
+import SirShadow.AdventureBags.common.utils.handler.KeyBindings;
+import SirShadow.AdventureBags.common.utils.handler.KeyInputHandler;
 import SirShadow.AdventureBags.registry.RecipeManeger;
 import SirShadow.AdventureBags.registry.RegistyManeger;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -40,6 +44,14 @@ public abstract class CommonProxy implements IProxy
     {
         MinecraftForge.EVENT_BUS.register(new ConfigurationHandler());
     }
+
+    /*private void registerKeybinds(){
+        FMLCommonHandler.instance().bus().register(new KeyInputHandler());
+        for(KeyBindings key : KeyBindings.values()) {
+            ClientRegistry.registerKeyBinding(key.getKeyBid());
+        }
+
+    }*/
 
     private static void newtworkRegistry()
     {

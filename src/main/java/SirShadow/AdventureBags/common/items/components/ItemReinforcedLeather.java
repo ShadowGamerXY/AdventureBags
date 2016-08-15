@@ -9,5 +9,6 @@ public class ItemReinforcedLeather extends ItemBaseAB
 {
     public ItemReinforcedLeather() {
         super("itemReinforcedLeather");
+        setMaxStackSize(64);
     }
 }

@@ -27,7 +27,7 @@ public class BlockContainerBase extends BlockContainer {
     public BlockContainerBase(String name, Material material) {
         super(material);
         setRegistryName(name);
-        setUnlocalizedName(LibMain.MOD_ID + ":" + name);
+        setUnlocalizedName(LibMain.ModInfo.MOD_ID + ":" + name);
         setCreativeTab(AdventureBags.tabAdventure);
 
         RegistyManeger.Block_Container.add(this);

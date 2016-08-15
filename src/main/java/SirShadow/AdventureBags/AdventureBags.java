@@ -15,13 +15,13 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-@Mod(modid = LibMain.MOD_ID,name = LibMain.NAME,version = LibMain.VERSION,useMetadata = true,guiFactory = "SirShadow.AdventureBags.client.gui.GuiFactory")
+@Mod(modid = LibMain.ModInfo.MOD_ID,name = LibMain.ModInfo.NAME,version = LibMain.ModInfo.VERSION,useMetadata = true,guiFactory = "SirShadow.AdventureBags.client.gui.GuiFactory")
 public class AdventureBags
 {
-    @Mod.Instance(LibMain.MOD_ID)
+    @Mod.Instance(LibMain.ModInfo.MOD_ID)
     public static AdventureBags instance;
 
-    @SidedProxy(clientSide = LibMain.CLIENT_PROXY_CLASS,serverSide = "SirShadow.AdventureBags.proxys.ServerProxy")
+    @SidedProxy(clientSide = LibMain.ModInfo.CLIENT_PROXY_CLASS,serverSide = LibMain.ModInfo.SERVER_PROXY_CLASS)
     public static IProxy proxy;
 
     @Mod.EventHandler
@@ -41,7 +41,7 @@ public class AdventureBags
     }
 
 
-    public static CreativeTabs tabAdventure = new CreativeTabs(LibMain.MOD_ID)
+    public static CreativeTabs tabAdventure = new CreativeTabs(LibMain.ModInfo.MOD_ID)
     {
         @Override
         public ItemStack getIconItemStack()
