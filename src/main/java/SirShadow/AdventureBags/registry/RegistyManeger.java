@@ -1,7 +1,6 @@
 package SirShadow.AdventureBags.registry;
 
 import SirShadow.AdventureBags.common.blocks.BlockContainerBase;
-import SirShadow.AdventureBags.common.blocks.BlockEnderCrate;
 import SirShadow.AdventureBags.common.items.ItemBaseAB;
 import SirShadow.AdventureBags.common.items.bags.ItemEnderBackpack;
 import SirShadow.AdventureBags.common.items.bags.itemEnderBag;
@@ -20,8 +19,8 @@ import java.util.List;
  */
 public class RegistyManeger
 {
-    public static List<ItemBaseAB>ITEMS = new ArrayList();
-    public static List<BlockContainerBase>Block_Container = new ArrayList<>();
+    public static List<ItemBaseAB>ITEMS = new ArrayList<ItemBaseAB>();
+    public static List<BlockContainerBase>Block_Container = new ArrayList<BlockContainerBase>();
 
     public static ItemBaseAB itemEnderBag = new itemEnderBag(),
                              itemReinforcedLeather = new ItemReinforcedLeather(),

@@ -12,10 +12,14 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 version = "${minecraft_version}-${mod_version}.${System.getenv("BUILD_NUMBER") ?: 0}"
 group= mod_group 
 archivesBaseName = mod_artifact_basename
+
+
 
 minecraft {
     version = minecraft_version + "-" + forge_version

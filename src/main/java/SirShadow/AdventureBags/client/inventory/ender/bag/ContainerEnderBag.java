@@ -1,8 +1,7 @@
 package SirShadow.AdventureBags.client.inventory.ender.bag;
 
-import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBag;
+import SirShadow.AdventureBags.client.inventory.ender.ContainerAB;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
@@ -11,7 +10,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-public class ContainerEnderBag extends Container {
+public class ContainerEnderBag extends ContainerAB {
     protected final int PLAYER_INVENTORY_ROWS = 3;
     protected final int PLAYER_INVENTORY_COLUMNS = 9;
 
@@ -36,18 +35,7 @@ public class ContainerEnderBag extends Container {
                 this.addSlotToContainer(new SlotBagEnder(this, inventoryBasicBag, player, slotBagIndex++, 31 + i * 18, 16 + k * 18));
             }
 
-        for (int rowIndex = 0; rowIndex < PLAYER_INVENTORY_ROWS; ++rowIndex)
-        {
-            for (int columnIndex = 0; columnIndex < PLAYER_INVENTORY_COLUMNS; ++columnIndex)
-            {
-                this.addSlotToContainer(new Slot(player.inventory, columnIndex + rowIndex * 9 + 9, 8 + columnIndex * 18, 88 + rowIndex * 18));
-            }
-        }
-
-        for (int actionBarIndex = 0; actionBarIndex < PLAYER_INVENTORY_COLUMNS; ++actionBarIndex)
-        {
-            this.addSlotToContainer(new Slot(player.inventory, actionBarIndex, 8 + actionBarIndex * 18, 146));
-        }
+        addPlayerInventory(player.inventory,8,88);
     }
 
     @Override

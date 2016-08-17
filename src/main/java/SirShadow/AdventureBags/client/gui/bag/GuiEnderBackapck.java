@@ -1,14 +1,11 @@
 package SirShadow.AdventureBags.client.gui.bag;
 
 import SirShadow.AdventureBags.client.gui.GuiBase;
-import SirShadow.AdventureBags.client.gui.GuiComponent;
-import SirShadow.AdventureBags.client.inventory.ender.bag.ContainerEnderBackapck;
-import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBackapck;
+import SirShadow.AdventureBags.client.inventory.ender.backpack.ContainerEnderBackapck;
+import SirShadow.AdventureBags.client.inventory.ender.backpack.InventoryEnderBackapck;
 import SirShadow.AdventureBags.lib.LibMain;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-
-import java.io.IOException;
 
 /**
  * Created by SirShadow on 21. 07. 2016.

@@ -1,4 +1,4 @@
-package SirShadow.AdventureBags.client.inventory.ender;
+package SirShadow.AdventureBags.client.inventory.ender.bag;
 
 import SirShadow.AdventureBags.api.BagBindingUtils;
 import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
@@ -22,7 +22,7 @@ public class InventoryEnderBag implements IInventory
 
     public InventoryEnderBag(EntityPlayer player)
         {
-            inventory = new ItemStack[42];
+            inventory = new ItemStack[18];
             readFromNBT(BagBindingUtils.getInventoryTagOfPlayer(player,Special_Bag_Tag));
 
         }

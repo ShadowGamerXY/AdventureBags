@@ -24,4 +24,9 @@ public class LibMain
     {
         public static final String ender_bag = "itemEnderBag",ender_backpack = "itemEnderBackpack";
     }
+
+    public class ContainerLib
+    {
+        public static final int INVENTORY_X = 8,INVENTORY_Y = 88;
+    }
 }

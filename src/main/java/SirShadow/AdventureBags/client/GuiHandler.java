@@ -3,15 +3,12 @@ package SirShadow.AdventureBags.client;
 import SirShadow.AdventureBags.client.gui.bag.GuiEnderBackapck;
 import SirShadow.AdventureBags.client.gui.bag.GuiEnderBag;
 import SirShadow.AdventureBags.client.gui.crate.GuiEnderCrate;
-import SirShadow.AdventureBags.client.inventory.ender.bag.ContainerEnderBackapck;
+import SirShadow.AdventureBags.client.inventory.ender.backpack.ContainerEnderBackapck;
+import SirShadow.AdventureBags.client.inventory.ender.backpack.InventoryEnderBackapck;
 import SirShadow.AdventureBags.client.inventory.ender.bag.ContainerEnderBag;
-import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBackapck;
-import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBag;
+import SirShadow.AdventureBags.client.inventory.ender.bag.InventoryEnderBag;
 import SirShadow.AdventureBags.client.inventory.ender.crate.ContainerEnderCrate;
-import SirShadow.AdventureBags.common.tile.TEEnderCrate;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 

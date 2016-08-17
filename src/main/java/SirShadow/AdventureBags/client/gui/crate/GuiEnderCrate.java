@@ -1,7 +1,7 @@
 package SirShadow.AdventureBags.client.gui.crate;
 
 import SirShadow.AdventureBags.client.gui.GuiBase;
-import SirShadow.AdventureBags.client.inventory.ender.InventoryEnderBackapck;
+import SirShadow.AdventureBags.client.inventory.ender.backpack.InventoryEnderBackapck;
 import SirShadow.AdventureBags.client.inventory.ender.crate.ContainerEnderCrate;
 import SirShadow.AdventureBags.lib.LibMain;
 import net.minecraft.entity.player.EntityPlayer;

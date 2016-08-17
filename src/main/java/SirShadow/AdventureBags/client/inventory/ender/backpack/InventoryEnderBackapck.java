@@ -1,4 +1,4 @@
-package SirShadow.AdventureBags.client.inventory.ender;
+package SirShadow.AdventureBags.client.inventory.ender.backpack;
 
 import SirShadow.AdventureBags.api.BagBindingUtils;
 import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
