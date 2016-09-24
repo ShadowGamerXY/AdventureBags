@@ -21,6 +21,7 @@ import java.util.List;
 public class BlockEnderCrate extends BlockContainerBase {
     public BlockEnderCrate() {
         super("blockEnderCrate", new TEEnderCrate());
+        setHarvestLevel("pickaxe",3);
     }
 
 
@@ -28,11 +29,11 @@ public class BlockEnderCrate extends BlockContainerBase {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
         if (!worldIn.isRemote) {
             if (!ConfigurationHandler.dimension_Lock) {
-                Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_CRATE, false);
+                Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_CRATE);
                 return true;
             } else {
                 if (playerIn.dimension == DimensionType.OVERWORLD.getId()) {
-                    Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_CRATE, false);
+                    Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_CRATE);
                     return true;
                 } else {
                     return false;

@@ -9,9 +9,9 @@ public class LibMain
         public static final String
                 MOD_ID = "adventurebags",
                 NAME = "Adventure Bags",
-                VERSION = "0.3",
+                VERSION = "0.4",
                 CLIENT_PROXY_CLASS = "SirShadow.AdventureBags.proxys.ClientProxy",
-                SERVER_PROXY_CLASS = "SirShadow.adventurebags.proxys.ServerProxy";
+                SERVER_PROXY_CLASS = "SirShadow.AdventureBags.proxys.ServerProxy";
     }
     public class LibTags
     {

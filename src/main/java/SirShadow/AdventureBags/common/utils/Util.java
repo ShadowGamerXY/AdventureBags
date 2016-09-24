@@ -19,19 +19,15 @@ import java.util.Random;
  */
 public class Util
 {
-    public static void openGUI(EntityPlayer player, World world, EnumIDs iDs,boolean lock) {
-        if (!world.isRemote) {
+    public static void openGUI(EntityPlayer player, World world, EnumIDs iDs) {
+        if (!world.isRemote)
+        {
             int x, y, z;
 
             x = (int) player.posX;
             y = (int) player.posY;
             z = (int) player.posZ;
-
-            if (!lock) {
-                player.openGui(AdventureBags.instance, iDs.ordinal(), world, x, y, z);
-            } else {
-
-            }
+            player.openGui(AdventureBags.instance, iDs.ordinal(), world, x, y, z);
         }
     }
 

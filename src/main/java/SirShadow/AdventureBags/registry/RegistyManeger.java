@@ -1,6 +1,7 @@
 package SirShadow.AdventureBags.registry;
 
 import SirShadow.AdventureBags.common.blocks.BlockContainerBase;
+import SirShadow.AdventureBags.common.blocks.BlockEnderCrate;
 import SirShadow.AdventureBags.common.items.ItemBaseAB;
 import SirShadow.AdventureBags.common.items.bags.ItemEnderBackpack;
 import SirShadow.AdventureBags.common.items.bags.itemEnderBag;
@@ -25,7 +26,7 @@ public class RegistyManeger
     public static ItemBaseAB itemEnderBag = new itemEnderBag(),
                              itemReinforcedLeather = new ItemReinforcedLeather(),
                              itemEnderBackpack = new ItemEnderBackpack();
-    //public static BlockContainerBase blockContainerEnderCrate = new BlockEnderCrate();
+    public static BlockContainerBase blockContainerEnderCrate = new BlockEnderCrate();
 
 
     public static void regiser()
