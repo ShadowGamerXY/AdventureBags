@@ -63,7 +63,6 @@ public class itemEnderBag extends ItemBaseAB
                 tooltip.add("X:" + Integer.toString(x) + " Y:" + Integer.toString(y) + " Z:" + Integer.toString(z));
             }
         }
-        tooltip.add(TextFormatting.RED + "Dimension lock is active!");
     }
 
     public void createData(ItemStack stack)
@@ -100,6 +99,19 @@ public class itemEnderBag extends ItemBaseAB
     {
         if (!worldIn.isRemote)
         {
+            if (!ConfigurationHandler.dimension_Lock)
+            {
+                Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_BAG);
+                return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+            } else
+            {
+                if (playerIn.dimension == DimensionType.OVERWORLD.getId())
+                {
+                    Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_BAG);
+                    return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+                }
+            }
+
             if (ConfigurationHandler.waypoint_marker)
             {
                 if (playerIn.isSneaking())
@@ -111,21 +123,7 @@ public class itemEnderBag extends ItemBaseAB
                     shouldShow = true;
                 }
             }
-            if (!ConfigurationHandler.dimension_Lock)
-            {
-                Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_BAG);
-                return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
-            } else
-            {
-                if (playerIn.dimension == DimensionType.OVERWORLD.getId())
-                {
-                    Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_BAG);
-                    return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
-                } else
-                {
-                    return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
-                }
-            }
+            return new ActionResult<>(EnumActionResult.FAIL,itemStackIn);
         }
             return new ActionResult<>(EnumActionResult.PASS, itemStackIn);
     }
