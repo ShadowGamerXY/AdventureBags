@@ -10,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -26,6 +27,11 @@ import java.util.List;
  */
 public class itemEnderBag extends ItemBaseAB
 {
+
+    int x,y,z;
+
+    boolean shouldShow;
+
     public itemEnderBag()
     {
         super(LibMain.LibNames.ender_bag);
@@ -41,19 +47,52 @@ public class itemEnderBag extends ItemBaseAB
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced)
     {
         super.addInformation(stack, playerIn, tooltip, advanced);
-        if (TextHelper.displayShiftForDetail && !TextHelper.isShiftPressed())
+        if (ConfigurationHandler.waypoint_marker)
         {
-            tooltip.add("<Shift for details>");
+            if (TextHelper.displayShiftForDetail && !TextHelper.isShiftPressed())
+            {
+                tooltip.add("<Shift for details>");
+            }
+            if (!TextHelper.isShiftPressed())
+            {
+                return;
+            }
+            if (shouldShow)
+            {
+                tooltip.add("Saved position:");
+                tooltip.add("X:" + Integer.toString(x) + " Y:" + Integer.toString(y) + " Z:" + Integer.toString(z));
+            }
         }
-        if (!TextHelper.isShiftPressed())
+        tooltip.add(TextFormatting.RED + "Dimension lock is active!");
+    }
+
+    public void createData(ItemStack stack)
+    {
+        NBTTagCompound tag = stack.getTagCompound();
+        if(tag == null)
         {
-            return;
+            tag = new NBTTagCompound();
+            stack.setTagCompound(tag);
         }
-        tooltip.add("Inventory special tag: " + TextHelper.LIGHT_BLUE + ConfigurationHandler.bag_tag);
-        if (ConfigurationHandler.dimension_Lock)
+
+        tag.setBoolean("show",shouldShow);
+        tag.setInteger("x",x);
+        tag.setInteger("y",y);
+        tag.setInteger("z",z);
+    }
+
+    public void readData(ItemStack stack)
+    {
+        NBTTagCompound tag = stack.getTagCompound();
+        if(tag == null)
         {
-            tooltip.add(TextFormatting.RED + "Dimension lock is active!");
+            tag = new NBTTagCompound();
+            stack.setTagCompound(tag);
         }
+        tag.getBoolean("show");
+        tag.getInteger("x");
+        tag.getInteger("y");
+        tag.getInteger("z");
     }
 
     @Override
@@ -61,12 +100,22 @@ public class itemEnderBag extends ItemBaseAB
     {
         if (!worldIn.isRemote)
         {
+            if (ConfigurationHandler.waypoint_marker)
+            {
+                if (playerIn.isSneaking())
+                {
+                    x = (int) playerIn.posX;
+                    y = (int) playerIn.posY;
+                    z = (int) playerIn.posZ;
+
+                    shouldShow = true;
+                }
+            }
             if (!ConfigurationHandler.dimension_Lock)
             {
                 Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_BAG);
                 return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
-            }
-            else
+            } else
             {
                 if (playerIn.dimension == DimensionType.OVERWORLD.getId())
                 {

@@ -6,7 +6,6 @@ import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
 import SirShadow.AdventureBags.registry.RecipeManeger;
 import SirShadow.AdventureBags.registry.RegistyManeger;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -22,7 +21,7 @@ public abstract class CommonProxy implements IProxy
     {
         ConfigurationHandler.init(e.getSuggestedConfigurationFile());
         eventRegistry();
-        RegistyManeger.regiser();
+        RegistyManeger.register();
     }
 
     @Override
