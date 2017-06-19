@@ -21,5 +21,6 @@
 /.idea
 /*.iml
 /*.ipr
-/*.iws
+/*.iw
+/.classes
 /atlassian-ide-plugin.xml
