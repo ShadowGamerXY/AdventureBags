@@ -1,5 +1,5 @@
-item.adventurebags:itemEnderBag.name=Ender Satchel
-item.adventurebags:itemReinforcedLeather.name=Reinforced Leather
-item.adventurebags:itemEnderBackpack.name=Ender Backpack
+item.itemEnderBag.name=Ender Satchel
+item.itemReinforcedLeather.name=Reinforced Leather
+item.itemEnderBackpack.name=Ender Backpack
 
 itemGroup.adventurebags=Adventure Bags
