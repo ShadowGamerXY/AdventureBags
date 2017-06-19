@@ -64,8 +64,6 @@ public class ItemEnderBackpack extends ItemBase implements IBagAbility
     @Override
     public void addInformation(ItemStack stack, @Nullable World playerIn, List<String> tooltip, ITooltipFlag advanced) {
         super.addInformation(stack, playerIn, tooltip, advanced);
-        tooltip.add("Is bag locked: " + TextFormatting.RED + isLocked);
-        //tooltip.add("Quick access: " + TextHelper.ITALIC + TextHelper.PURPLE + quickAccess);
         if (TextHelper.displayShiftForDetail && !TextHelper.isShiftPressed())
         {
             tooltip.add("<Shift for details>");
@@ -73,7 +71,7 @@ public class ItemEnderBackpack extends ItemBase implements IBagAbility
         if (!TextHelper.isShiftPressed()) {
             return;
         }
-        tooltip.add("Special inventory tag: " + TextHelper.LIGHT_BLUE +ConfigurationHandler.backpack_tag);
+        tooltip.add("Is bag locked: " + TextFormatting.RED + isLocked);
         if(ConfigurationHandler.dimension_Lock)
         {
             tooltip.add(TextFormatting.RED + "Dimension lock is active!");

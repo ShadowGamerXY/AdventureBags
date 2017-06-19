@@ -60,18 +60,16 @@ public class itemEnderBag extends ItemBase implements IBagAbility {
     @Override
     public void addInformation(ItemStack stack, @Nullable World playerIn, List<String> tooltip, ITooltipFlag advanced) {
         super.addInformation(stack, playerIn, tooltip, advanced);
-        tooltip.add("Is bag locked: " + TextFormatting.RED + isLocked);
-        if (TextHelper.displayShiftForDetail && !TextHelper.isShiftPressed())
-        {
+        if (TextHelper.displayShiftForDetail && !TextHelper.isShiftPressed()) {
             tooltip.add("<Shift for details>");
         }
         if (!TextHelper.isShiftPressed()) {
             return;
         }
-            tooltip.add("Inventory special tag: " + TextHelper.LIGHT_BLUE +ConfigurationHandler.bag_tag);
-            if (ConfigurationHandler.dimension_Lock) {
-                tooltip.add(TextFormatting.RED + "Dimension lock is active!");
-            }
+        tooltip.add("Is bag locked: " + TextFormatting.RED + isLocked);
+        if (ConfigurationHandler.dimension_Lock) {
+            tooltip.add(TextFormatting.RED + "Dimension lock is active!");
+        }
     }
 
     @Override

@@ -3,7 +3,7 @@ package SirShadow.AdventureBags.proxys;
 import SirShadow.AdventureBags.AdventureBags;
 import SirShadow.AdventureBags.client.GuiHandler;
 import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
-import SirShadow.AdventureBags.registry.RecipeManeger;
+import SirShadow.AdventureBags.registry.RecipeManager;
 import SirShadow.AdventureBags.registry.RegistyManeger;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -28,11 +28,12 @@ public abstract class CommonProxy implements IProxy
     public void init(FMLInitializationEvent e)
     {
         newtworkRegistry();
+        RecipeManager.register();
     }
 
     @Override
     public void postInit(FMLPostInitializationEvent e) {
-        RecipeManeger.regiser();
+
     }
 
 

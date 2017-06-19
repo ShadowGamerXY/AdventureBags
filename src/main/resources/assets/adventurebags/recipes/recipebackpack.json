@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " R ",
+    "LEL",
+    "LCL"
+  ],
+  "key": {
+    "R": [
+      {
+        "item": "minecraft:blaze_powder",
+        "data": 0
+      }
+    ],
+    "L": [
+      {
+        "item":"adventurebags:itemreinforcedleather",
+        "data":0
+      }
+    ],
+    "E":[
+      {
+        "item":"minecraft:ender_eye",
+        "data":0
+      }
+    ],
+    "C":[
+      {
+        "item":"minecraft:ender_chest",
+        "data":0
+      }
+    ]
+  },
+  "result": {
+    "item": "adventurebags:itemenderbackpack"
+  }
+}
