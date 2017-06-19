@@ -34,7 +34,7 @@ public class Util
         }
     }
 
-    public static void dropItems(World world, int x, int y, int z) {
+    /*public static void dropItems(World world, int x, int y, int z) {
         Random rand = new Random();
         TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
 
@@ -67,5 +67,5 @@ public class Util
                 item.setCount(0);
             }
         }
-    }
+    }*/
 }

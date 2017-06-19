@@ -1,6 +1,6 @@
 package SirShadow.AdventureBags.client.inventory.ender.bag;
 
-import SirShadow.AdventureBags.client.inventory.ender.ContainerAB;
+import SirShadow.AdventureBags.client.inventory.ContainerAB;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;

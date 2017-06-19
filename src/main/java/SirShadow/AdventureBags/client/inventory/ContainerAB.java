@@ -1,4 +1,4 @@
-package SirShadow.AdventureBags.client.inventory.ender;
+package SirShadow.AdventureBags.client.inventory;
 
 import SirShadow.AdventureBags.api.IBagAbility;
 import net.minecraft.entity.player.EntityPlayer;
