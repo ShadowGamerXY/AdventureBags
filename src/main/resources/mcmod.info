@@ -4,7 +4,7 @@
   "name": "Adventure Bags",
   "description": "'Simple yet useful'-AlexisMachina, adds a new satchel and backpack for your adventures!",
   "version": "${version}",
-  "mcversion": "1.10.2",
+  "mcversion": "${mc-version}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Team Roots and Yulife"],
