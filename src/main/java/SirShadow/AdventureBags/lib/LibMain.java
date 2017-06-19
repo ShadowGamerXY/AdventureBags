@@ -9,7 +9,7 @@ public class LibMain
         public static final String
                 MOD_ID = "adventurebags",
                 NAME = "Adventure Bags",
-                VERSION = "0.3",
+                VERSION = "0.5",
                 CLIENT_PROXY_CLASS = "SirShadow.AdventureBags.proxys.ClientProxy",
                 SERVER_PROXY_CLASS = "SirShadow.adventurebags.proxys.ServerProxy";
     }
