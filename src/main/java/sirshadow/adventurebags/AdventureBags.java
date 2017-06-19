@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-@Mod(modid = LibMain.ModInfo.MOD_ID,name = LibMain.ModInfo.NAME,version = LibMain.ModInfo.VERSION,useMetadata = true,guiFactory = "GuiFactory")
+@Mod(modid = LibMain.ModInfo.MOD_ID,name = LibMain.ModInfo.NAME,version = LibMain.ModInfo.VERSION,useMetadata = true,guiFactory = "sirshadow.adventurebags.proxys.GuiFactory")
 public class AdventureBags
 {
     @Mod.Instance(LibMain.ModInfo.MOD_ID)
