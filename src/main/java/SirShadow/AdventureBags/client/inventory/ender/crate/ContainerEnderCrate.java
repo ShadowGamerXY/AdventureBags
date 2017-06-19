@@ -67,7 +67,7 @@ public class ContainerEnderCrate extends Container
         public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
-        if (!player.worldObj.isRemote) {
+        if (!player.world.isRemote) {
             saveInventory(player);
         }
     }
@@ -96,7 +96,7 @@ public class ContainerEnderCrate extends Container
                 {
                     return null;
                 }
-                if (itemstack1.stackSize == 0)
+                if (itemstack1.getCount() == 0)
                 {
                     slot.putStack(null);
                 }

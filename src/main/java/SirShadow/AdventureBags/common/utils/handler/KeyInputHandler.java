@@ -2,11 +2,8 @@ package SirShadow.AdventureBags.common.utils.handler;
 
 import SirShadow.AdventureBags.AdventureBags;
 import SirShadow.AdventureBags.client.EnumIDs;
-import SirShadow.AdventureBags.common.items.bags.ItemEnderBackpack;
-import SirShadow.AdventureBags.common.utils.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
@@ -29,7 +26,7 @@ public class KeyInputHandler
         if(key != null) {
             switch(key){
                 case QUICK_ACCESS:
-                    EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+                    EntityPlayer player = Minecraft.getMinecraft().player;
                     if(player.dimension == DimensionType.THE_END.getId())
                     {
                         int x, y, z;
@@ -38,8 +35,7 @@ public class KeyInputHandler
                         y = (int) player.posY;
                         z = (int) player.posZ;
 
-                        player.openGui(AdventureBags.instance, EnumIDs.GUI_ENDER_BACKPACK.ordinal(), player.worldObj, x, y, z);
-                        player.addChatComponentMessage(new TextComponentString("hello"));
+                        player.openGui(AdventureBags.instance, EnumIDs.GUI_ENDER_BACKPACK.ordinal(), player.world, x, y, z);
                     }
             }
         }

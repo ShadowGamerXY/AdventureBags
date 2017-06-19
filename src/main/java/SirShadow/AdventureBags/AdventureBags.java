@@ -4,7 +4,6 @@ import SirShadow.AdventureBags.lib.LibMain;
 import SirShadow.AdventureBags.proxys.IProxy;
 import SirShadow.AdventureBags.registry.RegistyManeger;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -50,9 +49,9 @@ public class AdventureBags
         }
 
         @Override
-        public Item getTabIconItem()
+        public ItemStack getTabIconItem()
         {
-            return RegistyManeger.itemEnderBag;
+            return new ItemStack(RegistyManeger.itemEnderBag);
         }
     };
 }
