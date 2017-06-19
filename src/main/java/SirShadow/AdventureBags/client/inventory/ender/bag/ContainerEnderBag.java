@@ -35,7 +35,7 @@ public class ContainerEnderBag extends ContainerAB {
                 this.addSlotToContainer(new SlotBagEnder(this, inventoryBasicBag, player, slotBagIndex++, 31 + i * 18, 16 + k * 18));
             }
 
-        addPlayerInventory(player.inventory,8,88);
+        addPlayerInventory(player,8,88);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class ContainerEnderBag extends ContainerAB {
     public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
-        if (!player.worldObj.isRemote) {
+        if (!player.world.isRemote) {
             saveInventory(player);
         }
     }
@@ -60,7 +60,7 @@ public class ContainerEnderBag extends ContainerAB {
     @Override
     public ItemStack transferStackInSlot(EntityPlayer p, int i)
     {
-        ItemStack itemstack = null;
+        ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = (Slot) inventorySlots.get(i);
         if (slot != null && slot.getHasStack())
         {
@@ -81,9 +81,9 @@ public class ContainerEnderBag extends ContainerAB {
             {
                 return null;
             }
-            if (itemstack1.stackSize == 0)
+            if (itemstack1.getCount() == 0)
             {
-                slot.putStack(null);
+                slot.putStack(ItemStack.EMPTY);
             }
             else
             {

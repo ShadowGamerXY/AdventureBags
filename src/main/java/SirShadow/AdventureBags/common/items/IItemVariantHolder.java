@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.ItemMeshDefinition;
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-public interface IItemVariantHolder<T extends ItemBaseAB>
+public interface IItemVariantHolder<T extends ItemBase>
 {
     T getItem();
 

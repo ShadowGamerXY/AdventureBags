@@ -2,11 +2,12 @@ package SirShadow.AdventureBags.common.items.bags;
 
 import SirShadow.AdventureBags.api.IBagAbility;
 import SirShadow.AdventureBags.client.EnumIDs;
-import SirShadow.AdventureBags.common.items.ItemBaseAB;
+import SirShadow.AdventureBags.common.items.ItemBase;
 import SirShadow.AdventureBags.common.utils.Util;
 import SirShadow.AdventureBags.common.utils.handler.ConfigurationHandler;
 import SirShadow.AdventureBags.common.utils.helper.TextHelper;
 import SirShadow.AdventureBags.lib.LibMain;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
@@ -20,12 +21,13 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-public class itemEnderBag extends ItemBaseAB implements IBagAbility {
+public class itemEnderBag extends ItemBase implements IBagAbility {
 
     public static boolean isLocked = false;
 
@@ -39,7 +41,7 @@ public class itemEnderBag extends ItemBaseAB implements IBagAbility {
     }
 
     @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
         if (player.isSneaking()) {
             if (!isLocked) {
@@ -56,7 +58,7 @@ public class itemEnderBag extends ItemBaseAB implements IBagAbility {
     }
 
     @Override
-    public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+    public void addInformation(ItemStack stack, @Nullable World playerIn, List<String> tooltip, ITooltipFlag advanced) {
         super.addInformation(stack, playerIn, tooltip, advanced);
         tooltip.add("Is bag locked: " + TextFormatting.RED + isLocked);
         if (TextHelper.displayShiftForDetail && !TextHelper.isShiftPressed())
@@ -73,14 +75,15 @@ public class itemEnderBag extends ItemBaseAB implements IBagAbility {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
+        ItemStack itemStackIn = playerIn.getHeldItem(hand);
         if (!worldIn.isRemote) {
             if (!ConfigurationHandler.dimension_Lock) {
                 if (!isLocked) {
                     Util.openGUI(playerIn,worldIn,EnumIDs.GUI_ENDER_BAG,isLocked);
-                    return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
+                    return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
                 } else {
-                    return new ActionResult(EnumActionResult.FAIL, itemStackIn);
+                    return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
                 }
             }
             else {
@@ -88,17 +91,17 @@ public class itemEnderBag extends ItemBaseAB implements IBagAbility {
                 {
                     if (!isLocked) {
                         Util.openGUI(playerIn,worldIn,EnumIDs.GUI_ENDER_BAG,isLocked);
-                        return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
+                        return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
                     } else {
-                        return new ActionResult(EnumActionResult.FAIL, itemStackIn);
+                        return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
                     }
                 }
                 else {
-                    return new ActionResult(EnumActionResult.FAIL, itemStackIn);
+                    return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
                 }
             }
         }
-        return new ActionResult(EnumActionResult.PASS, itemStackIn);
+        return new ActionResult<>(EnumActionResult.PASS, itemStackIn);
     }
 
     @Override

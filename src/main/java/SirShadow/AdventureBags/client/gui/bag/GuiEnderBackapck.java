@@ -13,7 +13,7 @@ import net.minecraft.util.ResourceLocation;
 public class GuiEnderBackapck extends GuiContainer
 {
 
-    private static final ResourceLocation texture = new ResourceLocation(LibMain.ModInfo.MOD_ID,"textures/gui/guiBasicBackpack.png");
+    private static final ResourceLocation texture = new ResourceLocation(LibMain.ModInfo.MOD_ID,"textures/gui/guibasicbackpack.png");
 
     public GuiEnderBackapck(EntityPlayer player, InventoryEnderBackapck inventoryBag) {
         super(new ContainerEnderBackapck(player,inventoryBag));

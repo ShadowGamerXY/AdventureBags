@@ -1,6 +1,7 @@
 package SirShadow.AdventureBags.client.inventory.ender.backpack;
 
 import SirShadow.AdventureBags.client.inventory.ender.ContainerAB;
+import SirShadow.AdventureBags.common.items.bags.ItemEnderBackpack;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
@@ -29,9 +30,9 @@ public class ContainerEnderBackapck extends ContainerAB {
         for (int i = 0; i < BAG_INVENTORY_ROWS; i++)
             for (int k = 0; k < BAG_INVENTORY_COLUMNS; k++) {
                     this.addSlotToContainer(new SlotEnderBackpack(this, inventoryBasicBag, player, slotID++, 7 + i * 18, 7 + k * 18));
-            }
+        }
 
-        addPlayerInventory(player.inventory,8,115);
+        addPlayerInventory(player,8,115);
     }
 
     @Override
@@ -42,7 +43,7 @@ public class ContainerEnderBackapck extends ContainerAB {
 
     @Override
     public void onContainerClosed(EntityPlayer entityPlayer) {
-        if (!entityPlayer.worldObj.isRemote) {
+        if (!entityPlayer.world.isRemote) {
             saveInventory(entityPlayer);
         }
     }
@@ -51,7 +52,7 @@ public class ContainerEnderBackapck extends ContainerAB {
     public void detectAndSendChanges() {
         super.detectAndSendChanges();
 
-        if (!player.worldObj.isRemote) {
+        if (!player.world.isRemote) {
             saveInventory(player);
         }
     }
@@ -80,9 +81,9 @@ public class ContainerEnderBackapck extends ContainerAB {
             {
                 return null;
             }
-            if (itemstack1.stackSize == 0)
+            if (itemstack1.getCount() == 0)
             {
-                slot.putStack(null);
+                slot.putStack(ItemStack.EMPTY);
             }
             else
             {
