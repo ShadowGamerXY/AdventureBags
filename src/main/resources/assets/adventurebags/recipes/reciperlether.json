@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LLL",
+    "LSL",
+    "LLL"
+  ],
+  "key": {
+    "L": [
+      {
+        "item":"minecraft:leather",
+        "data":0
+      }
+    ],
+    "S":[
+      {
+        "item":"minecraft:string",
+        "data":0
+      }
+    ]
+  },
+  "result": {
+    "item": "adventurebags:itemenderbackpack",
+    "count":8
+  }
+}

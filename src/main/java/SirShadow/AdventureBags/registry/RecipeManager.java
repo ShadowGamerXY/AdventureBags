@@ -15,5 +15,6 @@ public class RecipeManager {
     public static void register() {
         CraftingManager.func_193373_a(new ResourceLocation(LibMain.ModInfo.MOD_ID,"recipes/recipebag.json"));
         CraftingManager.func_193373_a(new ResourceLocation(LibMain.ModInfo.MOD_ID,"recipes/recipebackpack.json"));
+        CraftingManager.func_193373_a(new ResourceLocation(LibMain.ModInfo.MOD_ID,"recipes/reciperlether.json"));
     }
 }
