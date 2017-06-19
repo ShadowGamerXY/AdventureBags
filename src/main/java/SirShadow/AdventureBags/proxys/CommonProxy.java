@@ -28,12 +28,11 @@ public abstract class CommonProxy implements IProxy
     public void init(FMLInitializationEvent e)
     {
         newtworkRegistry();
-        RecipeManager.register();
     }
 
     @Override
     public void postInit(FMLPostInitializationEvent e) {
-
+        RecipeManager.register();
     }
 
 

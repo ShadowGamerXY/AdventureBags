@@ -1,7 +1,6 @@
 package SirShadow.AdventureBags.common.items;
 
 import SirShadow.AdventureBags.AdventureBags;
-import SirShadow.AdventureBags.lib.LibMain;
 import SirShadow.AdventureBags.registry.RegistyManeger;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
@@ -25,7 +24,7 @@ public class ItemBase extends Item implements IItemVariantHolder<ItemBase>
 public ItemBase(String name, String ... variants) {
         super();
         setRegistryName(name);
-        setUnlocalizedName(LibMain.ModInfo.MOD_ID + ":" + name);
+        setUnlocalizedName(name);
         setCreativeTab(AdventureBags.tabAdventure);
         setMaxStackSize(1);
         setNoRepair();
@@ -45,7 +44,7 @@ public ItemBase(String name, String ... variants) {
         public String getUnlocalizedName(ItemStack itemStack) {
 
         if (hasSubtypes && itemStack.getMetadata() < VARIANTS.length) {
-            return String.format("item." + LibMain.ModInfo.MOD_ID + ":%s", VARIANTS[itemStack.getMetadata()]);
+            return String.format("%s", VARIANTS[itemStack.getMetadata()]);
         }
         return super.getUnlocalizedName(itemStack);
     }
@@ -103,6 +102,6 @@ public ItemBase(String name, String ... variants) {
     }
 
     protected ModelResourceLocation getCustomModelResourceLocation(String variant) {
-        return new ModelResourceLocation(LibMain.ModInfo.MOD_ID + ":" + variant);
+        return new ModelResourceLocation(variant);
     }
 }
