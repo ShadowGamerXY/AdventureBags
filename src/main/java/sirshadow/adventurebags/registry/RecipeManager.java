@@ -4,6 +4,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
@@ -21,6 +22,6 @@ public class RecipeManager {
     }
 
     public static void addRecipe(ItemStack output,Object o){
-        GameRegistry.register(new ShapedOreRecipe(new ResourceLocation("",""),output,true,o).setRegistryName("recipe" + output.getItem().getRegistryName()));
+        ForgeRegistries.RECIPES.register(new ShapedOreRecipe(new ResourceLocation("",""),output,true,o).setRegistryName("recipe" + output.getItem().getRegistryName()));
     }
 }

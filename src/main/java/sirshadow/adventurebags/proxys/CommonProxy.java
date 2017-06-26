@@ -1,8 +1,16 @@
 package sirshadow.adventurebags.proxys;
 
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import scala.collection.parallel.ParIterableLike;
 import sirshadow.adventurebags.AdventureBags;
 import sirshadow.adventurebags.client.GuiHandler;
+import sirshadow.adventurebags.common.EventHandler;
+import sirshadow.adventurebags.common.network.PacketHandler;
+import sirshadow.adventurebags.common.network.PacketUpdatePBS;
 import sirshadow.adventurebags.common.utils.handler.ConfigurationHandler;
+import sirshadow.adventurebags.common.utils.handler.KeyBindings;
+import sirshadow.adventurebags.common.utils.handler.KeyInputHandler;
 import sirshadow.adventurebags.registry.RecipeManager;
 import sirshadow.adventurebags.registry.RegistyManeger;
 import net.minecraftforge.common.MinecraftForge;
@@ -22,6 +30,8 @@ public abstract class CommonProxy implements IProxy
         ConfigurationHandler.init(e.getSuggestedConfigurationFile());
         eventRegistry();
         RegistyManeger.regiser();
+        registerKeybinds();
+        PacketHandler.register();
     }
 
     @Override
@@ -39,15 +49,16 @@ public abstract class CommonProxy implements IProxy
     private static void eventRegistry()
     {
         MinecraftForge.EVENT_BUS.register(new ConfigurationHandler());
+        MinecraftForge.EVENT_BUS.register(new EventHandler());
     }
 
-    /*private void registerKeybinds(){
+    private void registerKeybinds(){
         FMLCommonHandler.instance().bus().register(new KeyInputHandler());
         for(KeyBindings key : KeyBindings.values()) {
             ClientRegistry.registerKeyBinding(key.getKeyBid());
         }
 
-    }*/
+    }
 
     private static void newtworkRegistry()
     {

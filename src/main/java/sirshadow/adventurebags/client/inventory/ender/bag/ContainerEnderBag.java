@@ -1,5 +1,6 @@
 package sirshadow.adventurebags.client.inventory.ender.bag;
 
+import net.minecraft.inventory.Container;
 import sirshadow.adventurebags.client.inventory.ContainerAB;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -7,13 +8,13 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import sirshadow.adventurebags.client.inventory.ender.IBagContainer;
+import sirshadow.adventurebags.client.inventory.ender.SlotBag;
+
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-public class ContainerEnderBag extends ContainerAB {
-    protected final int PLAYER_INVENTORY_ROWS = 3;
-    protected final int PLAYER_INVENTORY_COLUMNS = 9;
-
+public class ContainerEnderBag extends ContainerAB implements IBagContainer{
     protected final int BAG_INVENTORY_ROWS = 6;
     protected final int BAG_INVENTORY_COLUMNS = 3;
 
@@ -29,10 +30,9 @@ public class ContainerEnderBag extends ContainerAB {
         this.inventoryBasicBag = inventoryBasicBag;
 
         int slotBagIndex = 0;
-
         for (int i = 0; i < BAG_INVENTORY_ROWS; i++)
             for (int k = 0; k < BAG_INVENTORY_COLUMNS; k++) {
-                this.addSlotToContainer(new SlotBagEnder(this, inventoryBasicBag, player, slotBagIndex++, 31 + i * 18, 16 + k * 18));
+                this.addSlotToContainer(new SlotBag(this, inventoryBasicBag, player, slotBagIndex++, 31 + i * 18, 16 + k * 18));
             }
 
         addPlayerInventory(player,8,88);
@@ -99,37 +99,9 @@ public class ContainerEnderBag extends ContainerAB {
         return itemFilter == null || itemstack == null || itemstack.getItem() == itemFilter;
     }
 
+    @Override
     public void saveInventory(EntityPlayer entityPlayer)
     {
         inventoryBasicBag.onGuiSaved(entityPlayer);
-    }
-    private class SlotBagEnder extends Slot
-    {
-        private final EntityPlayer player;
-        private ContainerEnderBag ContainerBasicBag;
-
-        public SlotBagEnder(ContainerEnderBag ContainerBasicBag, IInventory inventory, EntityPlayer player, int slotIndex, int x, int y)
-        {
-            super(inventory, slotIndex, x, y);
-            this.player = player;
-            this.ContainerBasicBag = ContainerBasicBag;
-        }
-
-        @Override
-        public void onSlotChanged()
-        {
-            super.onSlotChanged();
-
-            if (FMLCommonHandler.instance().getEffectiveSide().isServer())
-            {
-                ContainerBasicBag.saveInventory(player);
-            }
-        }
-
-        @Override
-        public boolean isItemValid(ItemStack itemStack)
-        {
-            return true;
-        }
     }
 }

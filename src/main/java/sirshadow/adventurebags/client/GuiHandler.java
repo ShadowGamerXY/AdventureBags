@@ -9,6 +9,8 @@ import sirshadow.adventurebags.client.inventory.ender.bag.InventoryEnderBag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
+import sirshadow.adventurebags.client.inventory.other.ContainerPBS;
+import sirshadow.adventurebags.client.inventory.other.InventoryPBS;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -24,6 +26,8 @@ public class GuiHandler implements IGuiHandler
                 return new ContainerEnderBag(player,new InventoryEnderBag(player));
             case GUI_ENDER_BACKPACK:
                 return new ContainerEnderBackapck(player,new InventoryEnderBackapck(player));
+            case GUI_PBS:
+                return new ContainerPBS(player,new InventoryPBS(player));
 
         }
         return null;
@@ -38,6 +42,8 @@ public class GuiHandler implements IGuiHandler
                 return new GuiEnderBag(player,new InventoryEnderBag(player));
             case GUI_ENDER_BACKPACK:
                 return new GuiEnderBackapck(player,new InventoryEnderBackapck(player));
+            case GUI_PBS:
+                return null;
 
         }
         return null;

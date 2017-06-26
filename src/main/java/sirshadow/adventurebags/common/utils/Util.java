@@ -1,9 +1,13 @@
 package sirshadow.adventurebags.common.utils;
 
-import sirshadow.adventurebags.AdventureBags;
-import sirshadow.adventurebags.client.EnumIDs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import sirshadow.adventurebags.AdventureBags;
+import sirshadow.adventurebags.api.IBagAbility;
+import sirshadow.adventurebags.client.EnumIDs;
+import sirshadow.adventurebags.client.inventory.other.InventoryPBS;
 
 /**
  * Created by SirShadow for the mod Roots on 29.7.2016.
@@ -26,38 +30,21 @@ public class Util
         }
     }
 
-    /*public static void dropItems(World world, int x, int y, int z) {
-        Random rand = new Random();
-        TileEntity tileEntity = world.getTileEntity(new BlockPos(x, y, z));
+   public static void equipBag(EntityPlayer player){
+       InventoryPBS inv = new InventoryPBS(player);
+       ItemStack curStack = player.inventory.getCurrentItem();
+       ItemStack storedStack = inv.getStackInSlot(0);
 
-        if (!(tileEntity instanceof IInventory)) {
-            return;
-        }
 
-        IInventory inventory = (IInventory) tileEntity;
-
-        for (int i = 0; i < inventory.getSizeInventory(); i++) {
-            ItemStack item = inventory.getStackInSlot(i);
-
-            if (item != null && item.getCount() > 0) {
-                float rx = rand.nextFloat() * 0.8F + 0.1F;
-                float ry = rand.nextFloat() * 0.8F + 0.1F;
-                float rz = rand.nextFloat() * 0.8F + 0.1F;
-                EntityItem entityItem = new EntityItem(world,
-                        x + rx, y + ry, z + rz,
-                        new ItemStack(item.getItem(), item.getCount(), item.getItemDamage()));
-
-                if (item.hasTagCompound()) {
-                    entityItem.getEntityItem().setTagCompound((NBTTagCompound) item.getTagCompound().copy());
-                }
-
-                float factor = 0.05F;
-                entityItem.motionX = rand.nextGaussian() * factor;
-                entityItem.motionY = rand.nextGaussian() * factor + 0.2F;
-                entityItem.motionZ = rand.nextGaussian() * factor;
-                world.spawnEntity(entityItem);
-                item.setCount(0);
-            }
-        }
-    }*/
+       if (storedStack.getItem().equals(new ItemStack(Blocks.AIR).getItem())) {
+           if (curStack.getItem() instanceof IBagAbility) {
+               inv.setInventorySlotContents(0, curStack);
+               player.inventory.deleteStack(curStack);
+           }
+       } else {
+           player.inventory.addItemStackToInventory(storedStack);
+           inv.setInventorySlotContents(0, ItemStack.EMPTY);
+       }
+       inv.onGuiSaved(player);
+   }
 }

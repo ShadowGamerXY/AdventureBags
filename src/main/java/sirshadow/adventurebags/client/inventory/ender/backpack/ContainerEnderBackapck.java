@@ -1,41 +1,46 @@
 package sirshadow.adventurebags.client.inventory.ender.backpack;
 
-import sirshadow.adventurebags.client.inventory.ContainerAB;
+import com.sun.istack.internal.NotNull;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import sirshadow.adventurebags.client.inventory.ContainerAB;
+import sirshadow.adventurebags.client.inventory.ender.IBagContainer;
+import sirshadow.adventurebags.client.inventory.ender.SlotBag;
+
+import javax.annotation.Nonnull;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-public class ContainerEnderBackapck extends ContainerAB {
+public class ContainerEnderBackapck extends ContainerAB implements IBagContainer{
     private  static int BAG_INVENTORY_ROWS = 9;
     private  static int BAG_INVENTORY_COLUMNS = 5;
 
-    public static int size = BAG_INVENTORY_COLUMNS * BAG_INVENTORY_ROWS;
+    private static int size = BAG_INVENTORY_COLUMNS * BAG_INVENTORY_ROWS;
 
     private final EntityPlayer player;
-    public final InventoryEnderBackapck inventoryBasicBag;
+    private final InventoryEnderBackapck inventoryEnderBackpack;
 
     private Item itemFilter;
 
     public ContainerEnderBackapck(EntityPlayer player, InventoryEnderBackapck inventoryBasicBag) {
         this.player = player;
-        this.inventoryBasicBag = inventoryBasicBag;
+        this.inventoryEnderBackpack = inventoryBasicBag;
 
         int slotID = 0;
 
         for (int i = 0; i < BAG_INVENTORY_ROWS; i++)
             for (int k = 0; k < BAG_INVENTORY_COLUMNS; k++) {
-                    this.addSlotToContainer(new SlotEnderBackpack(this, inventoryBasicBag, player, slotID++, 7 + i * 18, 7 + k * 18));
+                    this.addSlotToContainer(new SlotBag(this, inventoryBasicBag, player, slotID++, 7 + i * 18, 7 + k * 18));
         }
 
         addPlayerInventory(player,8,115);
     }
 
     @Override
-    public boolean canInteractWith(EntityPlayer entityPlayer)
+    public boolean canInteractWith(@Nonnull EntityPlayer player)
     {
         return true;
     }
@@ -56,6 +61,7 @@ public class ContainerEnderBackapck extends ContainerAB {
         }
     }
 
+    @Nonnull
     @Override
     public ItemStack transferStackInSlot(EntityPlayer p, int i)
     {
@@ -98,8 +104,17 @@ public class ContainerEnderBackapck extends ContainerAB {
         return itemFilter == null || itemstack == null || itemstack.getItem() == itemFilter;
     }
 
+    @Override
     public void saveInventory(EntityPlayer entityPlayer)
     {
-        inventoryBasicBag.onGuiSaved(entityPlayer);
+        inventoryEnderBackpack.onGuiSaved(entityPlayer);
+    }
+
+    public static int getSize() {
+        return size;
+    }
+
+    public InventoryEnderBackapck getInventoryEnderBackPack() {
+        return inventoryEnderBackpack;
     }
 }

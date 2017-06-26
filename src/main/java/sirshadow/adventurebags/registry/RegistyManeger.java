@@ -1,5 +1,6 @@
 package sirshadow.adventurebags.registry;
 
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import sirshadow.adventurebags.common.blocks.BlockContainerBase;
 import sirshadow.adventurebags.common.items.ItemBase;
 import sirshadow.adventurebags.common.items.bags.ItemEnderBackpack;
@@ -24,18 +25,15 @@ public class RegistyManeger
     public static ItemBase itemEnderBag = new itemEnderBag(),
                              itemReinforcedLeather = new ItemReinforcedLeather(),
                              itemEnderBackpack = new ItemEnderBackpack();
-    //public static BlockContainerBase blockContainerEnderCrate = new BlockEnderCrate();
 
 
     public static void regiser()
     {
-        GameRegistry.register(itemEnderBag);
-        GameRegistry.register(itemReinforcedLeather);
-        GameRegistry.register(itemEnderBackpack);
+        ITEMS.forEach(ForgeRegistries.ITEMS::register);
 
         for (BlockContainerBase blockCHE : Block_Container) {
-            GameRegistry.register(blockCHE);
-            GameRegistry.register(new ItemBlock(blockCHE).setRegistryName(blockCHE.getRegistryName()));
+            ForgeRegistries.BLOCKS.register(blockCHE);
+            ForgeRegistries.ITEMS.register(new ItemBlock(blockCHE).setRegistryName(blockCHE.getRegistryName()));
         }
     }
     @SideOnly(Side.CLIENT)

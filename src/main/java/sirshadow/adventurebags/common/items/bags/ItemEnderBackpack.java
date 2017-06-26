@@ -31,10 +31,6 @@ public class ItemEnderBackpack extends ItemBase implements IBagAbility
 {
     public static boolean isLocked = false;
 
-    public static boolean quickAccess = false;
-    //TODO:Move to LibTags
-    public String quickAccessString = "quickAccess";
-
     public ItemEnderBackpack() {
         super(LibMain.LibNames.ender_backpack);
     }
@@ -117,7 +113,6 @@ public class ItemEnderBackpack extends ItemBase implements IBagAbility
             stack.setTagCompound(tag);
         }
         tag.setBoolean(LibMain.LibTags.backpackLockTag,isLocked);
-       // tag.setBoolean(this.quickAccessString,quickAccess);
     }
 
     @Override
@@ -130,6 +125,5 @@ public class ItemEnderBackpack extends ItemBase implements IBagAbility
             stack.setTagCompound(tag);
         }
         tag.getBoolean(LibMain.LibTags.backpackLockTag);
-        //tag.getBoolean(quickAccessString);
     }
 }
