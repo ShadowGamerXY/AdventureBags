@@ -1,11 +1,11 @@
 package sirshadow.adventurebags.client.gui.bag;
 
-import sirshadow.adventurebags.client.inventory.ender.bag.ContainerEnderBag;
-import sirshadow.adventurebags.client.inventory.ender.bag.InventoryEnderBag;
-import sirshadow.adventurebags.lib.LibMain;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import sirshadow.adventurebags.client.inventory.ender.bag.ContainerEnderBag;
+import sirshadow.adventurebags.client.inventory.ender.bag.InventoryEnderBag;
+import sirshadow.adventurebags.lib.LibMain;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -20,7 +20,6 @@ public class GuiEnderBag extends GuiContainer
         xSize = (176);
         ySize = (170);
     }
-
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)

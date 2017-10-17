@@ -9,14 +9,10 @@ import sirshadow.adventurebags.common.utils.Util;
  */
 public class PacketUpdatePBS extends MessageBase<PacketUpdatePBS>
 {
-
-    public PacketUpdatePBS(){
-
-    }
+    public PacketUpdatePBS(){}
 
     @Override
-    public void handleClientSide(PacketUpdatePBS message, EntityPlayer player) {
-    }
+    public void handleClientSide(PacketUpdatePBS message, EntityPlayer player) {}
 
     @Override
     public void handleServerSide(PacketUpdatePBS message, EntityPlayer player) {
@@ -24,12 +20,8 @@ public class PacketUpdatePBS extends MessageBase<PacketUpdatePBS>
     }
 
     @Override
-    public void fromBytes(ByteBuf buf) {
-
-    }
+    public void fromBytes(ByteBuf buf) {}
 
     @Override
-    public void toBytes(ByteBuf buf) {
-
-    }
+    public void toBytes(ByteBuf buf) {}
 }

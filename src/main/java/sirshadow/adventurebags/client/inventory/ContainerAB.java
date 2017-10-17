@@ -1,10 +1,10 @@
 package sirshadow.adventurebags.client.inventory;
 
-import sirshadow.adventurebags.api.IBagAbility;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import sirshadow.adventurebags.common.items.bags.ItemBag;
 
 /**
  * Created by SirShadow on 16.8.2016.
@@ -20,7 +20,7 @@ public abstract class ContainerAB extends Container
         }
 
         for(int i = 0; i < 9; ++i) {
-            if (player.inventory.getStackInSlot(i).getItem() instanceof IBagAbility) {
+            if (player.inventory.getStackInSlot(i).getItem() instanceof ItemBag) {
                 this.addSlotToContainer(new Slot(player.inventory, i, x + i * 18, y + 58) {
                     @Override
                     public boolean isItemValid(ItemStack stack) {

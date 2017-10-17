@@ -1,9 +1,9 @@
 package sirshadow.adventurebags.common.utils.handler;
 
-import sirshadow.adventurebags.lib.LibMain;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import sirshadow.adventurebags.lib.LibMain;
 
 import java.io.File;
 

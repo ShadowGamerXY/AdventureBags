@@ -16,7 +16,6 @@ public class BagBindingUtils
         NBTTagCompound forgeData = player.getEntityData().getCompoundTag(EntityPlayer.PERSISTED_NBT_TAG);
         NBTTagCompound bagData = forgeData.getCompoundTag("bagData");
 
-        //Creates/sets the tags if they don't exist
         if (!forgeData.hasKey("bagData")) forgeData.setTag("bagData", bagData);
         if (!player.getEntityData().hasKey(EntityPlayer.PERSISTED_NBT_TAG)) player.getEntityData().setTag(EntityPlayer.PERSISTED_NBT_TAG, forgeData);
 

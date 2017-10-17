@@ -1,23 +1,21 @@
 package sirshadow.adventurebags.proxys;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import scala.collection.parallel.ParIterableLike;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import sirshadow.adventurebags.AdventureBags;
 import sirshadow.adventurebags.client.GuiHandler;
 import sirshadow.adventurebags.common.EventHandler;
 import sirshadow.adventurebags.common.network.PacketHandler;
-import sirshadow.adventurebags.common.network.PacketUpdatePBS;
 import sirshadow.adventurebags.common.utils.handler.ConfigurationHandler;
 import sirshadow.adventurebags.common.utils.handler.KeyBindings;
 import sirshadow.adventurebags.common.utils.handler.KeyInputHandler;
 import sirshadow.adventurebags.registry.RecipeManager;
 import sirshadow.adventurebags.registry.RegistyManeger;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 /**
  * Created by SirShadow on 21. 07. 2016.

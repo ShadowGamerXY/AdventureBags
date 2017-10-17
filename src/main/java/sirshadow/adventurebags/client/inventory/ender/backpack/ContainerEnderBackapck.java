@@ -1,6 +1,5 @@
 package sirshadow.adventurebags.client.inventory.ender.backpack;
 
-import com.sun.istack.internal.NotNull;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;

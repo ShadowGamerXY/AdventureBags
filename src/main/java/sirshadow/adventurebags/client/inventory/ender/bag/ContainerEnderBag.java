@@ -1,13 +1,10 @@
 package sirshadow.adventurebags.client.inventory.ender.bag;
 
-import net.minecraft.inventory.Container;
-import sirshadow.adventurebags.client.inventory.ContainerAB;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.FMLCommonHandler;
+import sirshadow.adventurebags.client.inventory.ContainerAB;
 import sirshadow.adventurebags.client.inventory.ender.IBagContainer;
 import sirshadow.adventurebags.client.inventory.ender.SlotBag;
 

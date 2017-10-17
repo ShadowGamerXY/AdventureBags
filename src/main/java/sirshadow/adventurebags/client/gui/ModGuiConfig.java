@@ -1,11 +1,11 @@
 package sirshadow.adventurebags.client.gui;
 
-import sirshadow.adventurebags.common.utils.handler.ConfigurationHandler;
-import sirshadow.adventurebags.lib.LibMain;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.config.GuiConfig;
+import sirshadow.adventurebags.common.utils.handler.ConfigurationHandler;
+import sirshadow.adventurebags.lib.LibMain;
 
 
 /**

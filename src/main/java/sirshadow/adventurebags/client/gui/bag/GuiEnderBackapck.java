@@ -1,11 +1,11 @@
 package sirshadow.adventurebags.client.gui.bag;
 
-import sirshadow.adventurebags.client.inventory.ender.backpack.ContainerEnderBackapck;
-import sirshadow.adventurebags.client.inventory.ender.backpack.InventoryEnderBackapck;
-import sirshadow.adventurebags.lib.LibMain;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import sirshadow.adventurebags.client.inventory.ender.backpack.ContainerEnderBackapck;
+import sirshadow.adventurebags.client.inventory.ender.backpack.InventoryEnderBackapck;
+import sirshadow.adventurebags.lib.LibMain;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
