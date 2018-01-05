@@ -1,4 +1,4 @@
-# AdventureBags
+# AdventureBags  [![CurseForge](http://cf.way2muchnoise.eu/adventurebag.svg)](https://minecraft.curseforge.com/projects/adventurebags) [![CurseForge](http://cf.way2muchnoise.eu/versions/adventurebags.svg)](https://minecraft.curseforge.com/projects/adventurebags)
 "Simple yet useful" -AlexisMachina
 
 Twitter: https://twitter.com/TeamRootsMC
