@@ -14,9 +14,9 @@ public class RecipeManager {
 
     public static void register() {
         Object o1 = new Object[]{" R ", "LEL", "LLL", 'R', new ItemStack(Items.BLAZE_POWDER), 'L', new ItemStack(Items.LEATHER), 'E', new ItemStack(Items.ENDER_EYE)};
-        addRecipe(new ItemStack(RegistyManeger.itemEnderBag),o1);
-        addRecipe(new ItemStack(RegistyManeger.itemReinforcedLeather), new Object[]{"SSS", "SLS", "SSS", 'S', new ItemStack(Items.STRING), 'L', new ItemStack(Items.LEATHER)});
-        addRecipe(new ItemStack(RegistyManeger.itemEnderBackpack), new Object[]{" R ", "LEL", "LCL", 'R', new ItemStack(Items.BLAZE_POWDER), 'L', new ItemStack(RegistyManeger.itemReinforcedLeather), 'E', new ItemStack(Items.ENDER_EYE),'C',new ItemStack(Blocks.ENDER_CHEST)});
+        addRecipe(new ItemStack(RegistryManager.itemEnderBag),o1);
+        addRecipe(new ItemStack(RegistryManager.itemReinforcedLeather), new Object[]{"SSS", "SLS", "SSS", 'S', new ItemStack(Items.STRING), 'L', new ItemStack(Items.LEATHER)});
+        addRecipe(new ItemStack(RegistryManager.itemEnderBackpack), new Object[]{" R ", "LEL", "LCL", 'R', new ItemStack(Items.BLAZE_POWDER), 'L', new ItemStack(RegistryManager.itemReinforcedLeather), 'E', new ItemStack(Items.ENDER_EYE),'C',new ItemStack(Blocks.ENDER_CHEST)});
 
     }
 

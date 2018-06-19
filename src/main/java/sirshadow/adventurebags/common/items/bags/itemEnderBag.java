@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import sirshadow.adventurebags.client.EnumIDs;
 import sirshadow.adventurebags.common.utils.Util;
 import sirshadow.adventurebags.common.utils.handler.ConfigurationHandler;
-import sirshadow.adventurebags.lib.LibMain;
+import sirshadow.adventurebags.lib.ModLibrary;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -18,7 +18,7 @@ import sirshadow.adventurebags.lib.LibMain;
 public class itemEnderBag extends ItemBag {
 
     public itemEnderBag() {
-        super(LibMain.LibNames.ender_bag);
+        super(ModLibrary.LibNames.ender_bag);
     }
 
     @Override

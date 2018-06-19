@@ -7,9 +7,10 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import static sirshadow.adventurebags.lib.LibMain.ModInfo.*;
 import sirshadow.adventurebags.proxys.IProxy;
-import sirshadow.adventurebags.registry.RegistyManeger;
+import sirshadow.adventurebags.registry.RegistryManager;
+
+import static sirshadow.adventurebags.lib.ModLibrary.ModInfo.*;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -44,13 +45,13 @@ public class AdventureBags
         @Override
         public ItemStack getIconItemStack()
         {
-            return new ItemStack(RegistyManeger.itemEnderBag,1,0);
+            return new ItemStack(RegistryManager.itemEnderBag,1,0);
         }
 
         @Override
         public ItemStack getTabIconItem()
         {
-            return new ItemStack(RegistyManeger.itemEnderBag);
+            return new ItemStack(RegistryManager.itemEnderBag);
         }
     };
 }

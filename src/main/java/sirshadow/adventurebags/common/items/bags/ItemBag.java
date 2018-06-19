@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import sirshadow.adventurebags.common.items.ItemBase;
 import sirshadow.adventurebags.common.utils.handler.ConfigurationHandler;
 import sirshadow.adventurebags.common.utils.helper.TextHelper;
-import sirshadow.adventurebags.lib.LibMain;
+import sirshadow.adventurebags.lib.ModLibrary;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -76,7 +76,7 @@ public class ItemBag extends ItemBase {
             tag = new NBTTagCompound();
             stack.setTagCompound(tag);
         }
-        tag.setBoolean(LibMain.LibTags.backpackLockTag,isLocked);
+        tag.setBoolean(ModLibrary.LibTags.backpackLockTag,isLocked);
     }
 
     public void getLockState(ItemStack stack) {
@@ -86,7 +86,7 @@ public class ItemBag extends ItemBase {
             tag = new NBTTagCompound();
             stack.setTagCompound(tag);
         }
-        tag.getBoolean(LibMain.LibTags.backpackLockTag);
+        tag.getBoolean(ModLibrary.LibTags.backpackLockTag);
     }
 
     public boolean isBagLocked(){

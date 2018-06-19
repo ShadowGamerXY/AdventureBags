@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-public class RegistyManeger
+public class RegistryManager
 {
     public static List<ItemBase>ITEMS = new ArrayList<ItemBase>();
     public static List<BlockContainerBase>Block_Container = new ArrayList<BlockContainerBase>();
@@ -26,7 +26,7 @@ public class RegistyManeger
                              itemEnderBackpack = new ItemEnderBackpack();
 
 
-    public static void regiser()
+    public static void register()
     {
         ITEMS.forEach(ForgeRegistries.ITEMS::register);
 

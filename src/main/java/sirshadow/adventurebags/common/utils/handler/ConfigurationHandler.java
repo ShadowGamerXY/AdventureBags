@@ -3,7 +3,7 @@ package sirshadow.adventurebags.common.utils.handler;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import sirshadow.adventurebags.lib.LibMain;
+import sirshadow.adventurebags.lib.ModLibrary;
 
 import java.io.File;
 
@@ -45,7 +45,7 @@ public class ConfigurationHandler
     @SubscribeEvent
     public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
     {
-        if (event.getModID().equalsIgnoreCase(LibMain.ModInfo.MOD_ID))
+        if (event.getModID().equalsIgnoreCase(ModLibrary.ModInfo.MOD_ID))
         {
             load();
         }

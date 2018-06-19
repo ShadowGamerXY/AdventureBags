@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import sirshadow.adventurebags.client.inventory.ender.backpack.ContainerEnderBackapck;
 import sirshadow.adventurebags.client.inventory.ender.backpack.InventoryEnderBackapck;
-import sirshadow.adventurebags.lib.LibMain;
+import sirshadow.adventurebags.lib.ModLibrary;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -13,7 +13,7 @@ import sirshadow.adventurebags.lib.LibMain;
 public class GuiEnderBackapck extends GuiContainer
 {
 
-    private static final ResourceLocation texture = new ResourceLocation(LibMain.ModInfo.MOD_ID,"textures/gui/guibasicbackpack.png");
+    private static final ResourceLocation texture = new ResourceLocation(ModLibrary.ModInfo.MOD_ID,"textures/gui/guibasicbackpack.png");
 
     public GuiEnderBackapck(EntityPlayer player, InventoryEnderBackapck inventoryBag) {
         super(new ContainerEnderBackapck(player,inventoryBag));

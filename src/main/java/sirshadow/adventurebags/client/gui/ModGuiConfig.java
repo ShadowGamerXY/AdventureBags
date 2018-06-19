@@ -5,7 +5,7 @@ import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.client.config.GuiConfig;
 import sirshadow.adventurebags.common.utils.handler.ConfigurationHandler;
-import sirshadow.adventurebags.lib.LibMain;
+import sirshadow.adventurebags.lib.ModLibrary;
 
 
 /**
@@ -14,6 +14,6 @@ import sirshadow.adventurebags.lib.LibMain;
 public class ModGuiConfig extends GuiConfig
 {
     public ModGuiConfig(GuiScreen guiScreen) {
-        super(guiScreen, new ConfigElement(ConfigurationHandler.configuration.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), LibMain.ModInfo.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(ConfigurationHandler.configuration.toString()));
+        super(guiScreen, new ConfigElement(ConfigurationHandler.configuration.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), ModLibrary.ModInfo.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(ConfigurationHandler.configuration.toString()));
     }
 }

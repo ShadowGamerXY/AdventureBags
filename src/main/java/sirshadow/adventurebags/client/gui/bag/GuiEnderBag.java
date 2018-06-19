@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import sirshadow.adventurebags.client.inventory.ender.bag.ContainerEnderBag;
 import sirshadow.adventurebags.client.inventory.ender.bag.InventoryEnderBag;
-import sirshadow.adventurebags.lib.LibMain;
+import sirshadow.adventurebags.lib.ModLibrary;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -13,7 +13,7 @@ import sirshadow.adventurebags.lib.LibMain;
 public class GuiEnderBag extends GuiContainer
 {
 
-    private static final ResourceLocation texture = new ResourceLocation(LibMain.ModInfo.MOD_ID,"textures/gui/guibasicbag.png");
+    private static final ResourceLocation texture = new ResourceLocation(ModLibrary.ModInfo.MOD_ID,"textures/gui/guibasicbag.png");
 
     public GuiEnderBag(EntityPlayer player, InventoryEnderBag inventoryBag) {
         super(new ContainerEnderBag(player,inventoryBag));

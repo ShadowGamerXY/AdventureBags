@@ -11,7 +11,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import sirshadow.adventurebags.AdventureBags;
-import sirshadow.adventurebags.registry.RegistyManeger;
+import sirshadow.adventurebags.registry.RegistryManager;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -37,7 +37,7 @@ public ItemBase(String name, String ... variants) {
             VARIANTS = variants;
         }
 
-        RegistyManeger.ITEMS.add(this);
+        RegistryManager.ITEMS.add(this);
     }
 
         @Override
