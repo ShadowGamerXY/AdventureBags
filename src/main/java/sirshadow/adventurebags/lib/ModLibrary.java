@@ -3,13 +3,13 @@ package sirshadow.adventurebags.lib;
 /**
  * Created by SirShadow on 21. 07. 2016.
  */
-public class LibMain
+public class ModLibrary
 {
     public class ModInfo {
         public static final String
                 MOD_ID = "adventurebags",
                 NAME = "Adventure Bags",
-                VERSION = "0.5",
+                VERSION = "0.7",
                 CLIENT_PROXY_CLASS = "sirshadow.adventurebags.proxys.ClientProxy",
                 SERVER_PROXY_CLASS = "sirshadow.adventurebags.proxys.ServerProxy";
     }

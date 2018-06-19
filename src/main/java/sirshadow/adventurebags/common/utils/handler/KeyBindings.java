@@ -9,7 +9,7 @@ import org.lwjgl.input.Keyboard;
 public enum KeyBindings
 {
 
-    PBS("quick_access", Keyboard.KEY_P);
+    PBS("key.store.name", Keyboard.KEY_P);
 
     public final KeyBinding keyBinding;
 

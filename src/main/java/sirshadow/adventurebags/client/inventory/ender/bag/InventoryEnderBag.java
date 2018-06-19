@@ -1,8 +1,5 @@
 package sirshadow.adventurebags.client.inventory.ender.bag;
 
-import sirshadow.adventurebags.api.BagBindingUtils;
-import sirshadow.adventurebags.client.inventory.ender.IBagContainer;
-import sirshadow.adventurebags.common.utils.handler.ConfigurationHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -10,6 +7,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
+import sirshadow.adventurebags.api.BagBindingUtils;
+import sirshadow.adventurebags.common.utils.handler.ConfigurationHandler;
 
 import javax.annotation.Nonnull;
 

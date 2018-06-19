@@ -1,8 +1,5 @@
 package sirshadow.adventurebags.common.blocks;
 
-import sirshadow.adventurebags.AdventureBags;
-import sirshadow.adventurebags.lib.LibMain;
-import sirshadow.adventurebags.registry.RegistyManeger;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -12,6 +9,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import sirshadow.adventurebags.AdventureBags;
+import sirshadow.adventurebags.lib.ModLibrary;
+import sirshadow.adventurebags.registry.RegistryManager;
 
 /**
  * Created by SirShadow for the mod Roots on 1.8.2016.
@@ -27,10 +27,10 @@ public class BlockContainerBase extends BlockContainer {
     public BlockContainerBase(String name, Material material) {
         super(material);
         setRegistryName(name);
-        setUnlocalizedName(LibMain.ModInfo.MOD_ID + ":" + name);
+        setUnlocalizedName(ModLibrary.ModInfo.MOD_ID + ":" + name);
         setCreativeTab(AdventureBags.tabAdventure);
 
-        RegistyManeger.Block_Container.add(this);
+        RegistryManager.Block_Container.add(this);
     }
 
     @SideOnly(Side.CLIENT)

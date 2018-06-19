@@ -1,7 +1,5 @@
 package sirshadow.adventurebags.common.items;
 
-import sirshadow.adventurebags.AdventureBags;
-import sirshadow.adventurebags.registry.RegistyManeger;
 import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -12,6 +10,8 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import sirshadow.adventurebags.AdventureBags;
+import sirshadow.adventurebags.registry.RegistryManager;
 
 /**
  * Created by SirShadow on 21. 07. 2016.
@@ -37,7 +37,7 @@ public ItemBase(String name, String ... variants) {
             VARIANTS = variants;
         }
 
-        RegistyManeger.ITEMS.add(this);
+        RegistryManager.ITEMS.add(this);
     }
 
         @Override
