@@ -55,30 +55,33 @@ public class ContainerEnderBag extends ContainerAB implements IBagContainer{
     }
 
     @Override
-    public ItemStack transferStackInSlot(EntityPlayer p, int i)
+    public ItemStack transferStackInSlot(EntityPlayer p, int index)
     {
         ItemStack itemstack = ItemStack.EMPTY;
-        Slot slot = (Slot) inventorySlots.get(i);
+        Slot slot = this.inventorySlots.get(index);
+
         if (slot != null && slot.getHasStack())
         {
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
-            if (i < this.size)
+
+            if (index < this.size)
             {
-                if (!mergeItemStack(itemstack1, this.size, inventorySlots.size(), true))
+                if (!this.mergeItemStack(itemstack1, this.size, this.inventorySlots.size(), true))
                 {
-                    return null;
+                    return ItemStack.EMPTY;
                 }
             }
-            else if (!acceptsStack(itemstack1))
+            else if (!this.acceptsStack(itemstack1))
             {
-                return null;
+                return ItemStack.EMPTY;
             }
-            else if (!mergeItemStack(itemstack1, 0, this.size, false))
+            else if (!this.mergeItemStack(itemstack1, 0, this.size, false))
             {
-                return null;
+                return ItemStack.EMPTY;
             }
-            if (itemstack1.getCount() == 0)
+
+            if (itemstack1.isEmpty())
             {
                 slot.putStack(ItemStack.EMPTY);
             }
@@ -87,13 +90,14 @@ public class ContainerEnderBag extends ContainerAB implements IBagContainer{
                 slot.onSlotChanged();
             }
         }
+
         return itemstack;
     }
 
 
     public boolean acceptsStack(ItemStack itemstack)
     {
-        return itemFilter == null || itemstack == null || itemstack.getItem() == itemFilter;
+        return true;
     }
 
     @Override
