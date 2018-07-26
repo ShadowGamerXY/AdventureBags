@@ -25,24 +25,14 @@ public class ItemEnderBackpack extends ItemBag
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand hand) {
         ItemStack itemStackIn = playerIn.getHeldItem(hand);
 
-        if(!worldIn.isRemote) {
-            if(!ConfigurationHandler.dimension_Lock) {
-                if (!this.isBagLocked()) {
-                    Util.openGUI(playerIn,worldIn, EnumIDs.GUI_ENDER_BACKPACK,this.isBagLocked());
+        if (!worldIn.isRemote) {
+            if (!ConfigurationHandler.dimension_Lock) {
+                Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_BACKPACK, false);
+                return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+            } else {
+                if (playerIn.dimension == DimensionType.OVERWORLD.getId()) {
+                    Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_BACKPACK, false);
                     return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
-                }
-            }else
-            {
-                if(playerIn.dimension == DimensionType.OVERWORLD.getId())
-                {
-                    if (!this.isBagLocked()) {
-                        Util.openGUI(playerIn,worldIn,EnumIDs.GUI_ENDER_BACKPACK,this.isBagLocked());
-                        return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
-                    }
-                }
-                else
-                {
-
                 }
             }
         }

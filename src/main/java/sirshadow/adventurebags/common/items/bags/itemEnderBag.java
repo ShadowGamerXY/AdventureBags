@@ -26,24 +26,13 @@ public class itemEnderBag extends ItemBag {
         ItemStack itemStackIn = playerIn.getHeldItem(hand);
         if (!worldIn.isRemote) {
             if (!ConfigurationHandler.dimension_Lock) {
-                if (!this.isBagLocked()) {
-                    Util.openGUI(playerIn,worldIn,EnumIDs.GUI_ENDER_BAG,this.isBagLocked());
+                Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_BAG, false);
+                return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
+            } else {
+                if (playerIn.dimension == DimensionType.OVERWORLD.getId()) {
+                    Util.openGUI(playerIn, worldIn, EnumIDs.GUI_ENDER_BAG, false);
                     return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
                 } else {
-                    return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
-                }
-            }
-            else {
-                if(playerIn.dimension == DimensionType.OVERWORLD.getId())
-                {
-                    if (!this.isBagLocked()) {
-                        Util.openGUI(playerIn,worldIn,EnumIDs.GUI_ENDER_BAG,this.isBagLocked());
-                        return new ActionResult<>(EnumActionResult.SUCCESS, itemStackIn);
-                    } else {
-                        return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
-                    }
-                }
-                else {
                     return new ActionResult<>(EnumActionResult.FAIL, itemStackIn);
                 }
             }

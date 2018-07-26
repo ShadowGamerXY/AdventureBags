@@ -9,7 +9,7 @@ public class ModLibrary
         public static final String
                 MOD_ID = "adventurebags",
                 NAME = "Adventure Bags",
-                VERSION = "0.7",
+                VERSION = "0.9",
                 CLIENT_PROXY_CLASS = "sirshadow.adventurebags.proxys.ClientProxy",
                 SERVER_PROXY_CLASS = "sirshadow.adventurebags.proxys.ServerProxy";
     }
