@@ -2,10 +2,12 @@ package sirshadow.adventurebags.proxys;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import sirshadow.adventurebags.AdventureBags;
 import sirshadow.adventurebags.client.GuiHandler;
 import sirshadow.adventurebags.common.EventHandler;
