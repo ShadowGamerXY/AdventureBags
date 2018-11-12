@@ -5,6 +5,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import sirshadow.adventurebags.client.inventory.ContainerAB;
+import sirshadow.adventurebags.client.inventory.InventoryEnder;
 import sirshadow.adventurebags.client.inventory.ender.IBagContainer;
 import sirshadow.adventurebags.client.inventory.ender.SlotBag;
 
@@ -18,11 +19,11 @@ public class ContainerEnderBag extends ContainerAB implements IBagContainer{
     int size = BAG_INVENTORY_COLUMNS * BAG_INVENTORY_ROWS;
 
     private final EntityPlayer player;
-    public final InventoryEnderBag inventoryBasicBag;
+    public final InventoryEnder inventoryBasicBag;
 
     private Item itemFilter;
 
-    public ContainerEnderBag(EntityPlayer player, InventoryEnderBag inventoryBasicBag) {
+    public ContainerEnderBag(EntityPlayer player, InventoryEnder inventoryBasicBag) {
         this.player = player;
         this.inventoryBasicBag = inventoryBasicBag;
 
